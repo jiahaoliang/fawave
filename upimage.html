@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>发送图片 - FaWave(发微) - 多微博插件 </title>
+  <link rel="stylesheet" type="text/css" href="/css/popup.css" />
+  <link rel="stylesheet" type="text/css" href="/css/upimage.css" />
+  <style id="styleCustom"></style>
+
+  <script src="/scripts/lib/jquery.min.js"></script>
+  <script src="/scripts/lib/Base64.js"></script>
+  <script src="/scripts/lib/cvi_filter_lib.js"></script>
+  <script src="/scripts/lib/cvi_corner_lib.js"></script>
+  <script src="/scripts/i18n.js"></script>
+  <script src="/scripts/emotional.js"></script>
+  <script src="/scripts/utili.js"></script>
+  <script src="/scripts/lib/md5.js"></script>
+  <script src="/scripts/lib/jssha256.js"></script>
+  <script src="/scripts/lib/sha1.js"></script>
+  <script src="/scripts/lib/oauth.js"></script>
+  <script src="/scripts/apis.js"></script>
+  <script src="/scripts/ui.js"></script>
+  <script src="/scripts/text.js"></script>
+  <script src="/scripts/upimage.js"></script>
+ </head>
+
+ <body style="margin: 0 5px;">
+  <div id="submitWarp">
+    <div class="w">
+    <ul id="accountsForSend"></ul>
+    <p style="margin-right: 2px;"><textarea id="txtContent" ></textarea></p>
+    <div class="ctr">
+      <span id="wordCount_double">140</span>
+      /
+      <span id="wordCount">140</span>
+      &nbsp;
+      <a id="btnAddEmotional" href=""><img src="/images/face.gif" /><span class="__MSG_comm_emotional"></span></a>
+      &nbsp;
+      <button class="btn cleanTxtContentBtn"><span class="__MSG_comm_clear"></span></button>
+      &nbsp;
+      <button style="display:none;" class="btn windowCloseBtn"><span class="__MSG_comm_close"></span></button>
+      &nbsp;
+      <span id="success_close"><input id="cb_success_close" checked="checked" type="checkbox" />
+        <label for="cb_success_close"><span class="__MSG_comm_send_success_close_window"></span></label>
+      </span>
+      <input id="btnSend" type="button" class="btn send" disabled="disabled" />
+    </div>
+    </div>
+  </div><!-- submitWarp END -->
+
+  <div>
+    <ul id="uploadinfo"></ul>
+    <form id="uploadForm">
+      <div class="fileSel graph dragFile">
+        <strong id="progressBar" class="bar" style="width: 0%;"><span></span></strong>
+        <div class="selTip"><span class="__MSG_btn_select_pic_title"></span></div>
+      </div>
+      <span id="imageFileWrap" style="display:block;">
+        <input type="file" value="选择图片" id="imageFile" />
+      </span>
+      <div class="fileSel graph">
+        <span class="__MSG_comm_enter_image_url"></span>
+        <input type="text" style="width:50%;" id="imageUrl" />
+      </div>
+    </form>
+    <!-- <div style="width: 200px; "><span id="progressBar"></span></div> -->
+    <div id="imgFilterList"></div>
+    <input type="range" id="imgFilterRange" min="1" max="10" style="display:none; width:80%;" />
+    <div id="imgPreview"></div>
+  </div>
+  <div id="msgInfoWarp" style=""></div>
+  
+  <!-- 表情选择 -->
+  <div id="face_box" class="layerBox" style="display:none;">
+    <div class="layerBoxCon1">
+      <div class="faceItem clearFix">
+        <div class="layerArrow"></div>
+        <div class="face_tab tab2">
+          <p>
+            <a id="btnFaceBoxClose" class="close" href=""></a>
+          </p>
+        </div>
+        <div class="faceItemPicbg">
+        </div>
+      </div>
+    </div>
+  </div>
+  <input id="face_box_target_id" type="hidden" value="" />
+  <!-- 表情选择 End -->
+
+  <script src="/scripts/ga.js"></script>
+
+ </body>
+</html>

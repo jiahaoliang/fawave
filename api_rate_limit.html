@@ -1,0 +1,65 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>查看请求频率限制 - FaWave(发微) - 多微博插件</title>
+  <style>
+    .tpl-wrapper{display:none;}
+    .table1 thead th {
+      background: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0.02, #7BC043), color-stop(0.51, #8BC642), color-stop(0.87, #9ED929));
+      border-bottom: 1px solid #9ED929;
+      border: solid;
+      border-top-left-radius: 5px 5px;
+      border-top-right-radius: 5px 5px;
+      color: white;
+      padding:5px;
+      text-shadow: #568F23 1px 1px 1px;
+    }
+    .table1 td{ padding:5px; }
+    .table1 tr:nth-child(odd){ background-color:#eee; }
+    .table1 tr:nth-child(even){ background-color:#fff; }
+    .icon{width:20px; height:20px;}
+    .error{color:red;}
+  </style>
+  <script src="/scripts/lib/jquery.min.js"></script>
+  <!--<script src="/scripts/lib/facebox.js"></script>-->
+  <script src="/scripts/lib/Base64.js"></script>
+  <script src="/scripts/emotional.js"></script>
+  <script src="/scripts/utili.js"></script>
+  <script src="/scripts/lib/sha1.js"></script>
+  <script src="/scripts/lib/oauth.js"></script>
+  <script src="/scripts/apis.js"></script>
+
+
+</head>
+
+<body>
+<div>
+  <div class="logo">
+    <h1><img src="icons/icon48.png" /><span class="tpl-wrapper">extName</span></h1>
+  </div>
+</div>
+<div>
+  <h2><span class="tpl-wrapper">comm_rate_limit</span></h2>
+  <a id="refreshBtn"><span class="tpl-wrapper">comm_refresh</span></a>
+  <div>
+    <table id="rateLimitTable" class="table1">
+      <thead>
+        <th><span class="tpl-wrapper">comm_user</span></th>
+        <th><span class="tpl-wrapper">comm_mblog_type</span></th>
+        <th>
+          <span class="tpl-wrapper">comm_remainder</span> / <span class="tpl-wrapper">comm_total</span>
+          (<span class="tpl-wrapper">comm_rate_limit_per_hour</span>)
+        </th>
+        <th>
+          IP <span class="tpl-wrapper">comm_remainder</span> / <span class="tpl-wrapper">comm_total</span>
+          (<span class="tpl-wrapper">comm_rate_limit_per_hour</span>)
+        </th>
+        <th><span class="tpl-wrapper">comm_reset_time</span></th>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+  <script src="/scripts/api_rate.js"></script>
+</body>
+</html>

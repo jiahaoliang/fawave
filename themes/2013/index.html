@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link href="./fawave.css" type="text/css" rel="stylesheet" />
+<style type="text/css"></style>
+<title>FaWave</title>
+</head>
+<body>
+  <!--top-->
+  <section class="Fw_topContent">
+    <!--顶部刷新按钮-->
+    <span class="Fw_topRefresh"></span>
+
+    <!--用户信息-->
+    <article class="Fw_userInfo">
+      <div>
+        <a href="http://t.qq.com/digitalaries">Edwin</a>
+        <em><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></em>
+      </div>
+      <dl>
+        <dt><a href="http://t.qq.com/digitalaries">Edwin</a></dt>
+        <dd>
+          男
+          <span>广东,广州</span>
+        </dd>
+        <dd>
+          <ul>
+            <li>关注<em>58</em></li>
+            <li>粉丝<em>85</em></li>
+            <li>微博<em>185</em></li>
+          </ul>
+        </dd>
+      </dl>
+    </article>
+
+    <!--顶部功能栏-->
+    <article class="Fw_topFunctions">
+      <ul>
+        <li data-tip="搜索" class="Fw_iconSearch"></li>
+        <li data-tip="搜人" class="Fw_iconMan"></li>
+        <li data-tip="长微博" class="Fw_iconLongMsg"></li>
+        <li data-tip="发图" class="Fw_iconPhoto"></li>
+        <li data-tip="分享您正在看的网页" class="Fw_iconShare"></li>
+        <li data-tip="写微博" class="Fw_iconMsg"></li>
+      </ul>
+    </article>
+  </section>
+
+  <!--body-->
+  <section class="Fw_bodyContent">
+    <!--导航-->
+    <aside class="Fw_nav">
+
+      <!--账号操作主要功能-->
+      <div class="Fw_navFunctions">
+        <ul>
+          <li data-name="首页" ><em class="Fw_iconHome"></em></li>
+          <li data-name="@我" class="hasNews" data-num="6"><em class="Fw_iconAt"></em></li>
+          <li data-name="评论" class="hasNews" data-num="60"><em class="Fw_iconRecomm"></em></li>
+          <li data-name="私信" class="hasNews" data-num="6"><em class="Fw_iconPM"></em></li>
+          <li data-name="收藏" class="" data-num=""><em class="Fw_iconFav"></em></li>
+          <li data-name="粉丝" class="" data-num=""><em class="Fw_iconFans"></em></li>
+        </ul>
+      </div>
+      <!--账号列表-->
+      <div class="Fw_accountList">
+        <div class="accountsBox">
+          <ul>
+            <li data-num="">
+              <a href="http://t.qq.com/digitalaries">Edwin</a>
+              <em><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></em>
+            </li>
+            <li data-num="200" class="hasNews">
+              <a href="http://t.qq.com/digitalaries">Edwin</a>
+              <em><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></em>
+            </li>
+            <li data-num="6" class="hasNews">
+              <a href="http://t.qq.com/digitalaries">Edwin</a>
+              <em><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></em>
+            </li>
+            <li>
+              <a href="http://t.qq.com/digitalaries">Edwin</a>
+              <em><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></em>
+            </li>
+            <li data-num="">
+              <a href="http://t.qq.com/digitalaries">Edwin</a>
+              <em><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></em>
+            </li>
+          </ul>
+        </div>
+        <div class="next3Accounts"></div>
+      </div>
+      <!--账号次要功能-->
+      <div class="Fw_subNavFunction">
+        <ul>
+          <li class="Fw_iconRefresh"></li>
+          <li class="Fw_iconSetting"></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!--显示主体-->
+    <section class="Fw_outerContent">
+      <div class="Fw_outerContentFix">
+
+        <!--Timeline?-->
+        <div class="Fw_timeline">
+          <ul>
+            <li class="Fw_iconTlMsgList tlIsSelected"></li>
+            <li class="Fw_iconTlMusicList"></li>
+            <li class="Fw_iconTlVidioList"></li>
+            <li class="Fw_iconTlReplyList"></li>
+            <li class="Fw_iconTlPhotoList"></li>
+          </ul>
+        </div>
+
+        <!--main content-->
+        <div class="Fw_mainContent">
+          <div class="Fw_mainContentFix">
+            <!--new msg tip-->
+            <div class="Fw_hasNews">有3条新微博,请点击查看</div>
+
+            <!--list content-->
+            <div class="Fw_theList">
+
+              <!--每一条微博-->
+              <div class="Fw_msgDetailBox">
+
+                <!--微博内容及附属功能-->
+                <article>
+                  <div class="Fw_detail">
+                    <!--微博内容-->
+                    <p class="Fw_msg">
+                      <a href="#" data-type="topic">#微小说#</a>从前有只羊，每天干8个小时的活。一天，主人告诉它多干活有奖励，于是它每天干10个小时。接下来，主人每月把它身上的羊毛剪下三分之一。年底，主人给它织了件毛衣，然后告诉它诺，这是你的奖励，明年继续努力吧！<a href="#" data-type="people">@中国传奇</a><a href="http://t.cn/zOD" data-type="url">http://t.cn/zOD</a>
+                    </p>
+                  </div>
+
+                  <div class="Fw_detailFunctions">
+                    <!--客户端及发布时间-->
+                    <span class="Fw_detailTime" data-client="通过iphone">1分钟前</span>
+                    <ul>
+                      <li data-type="mainBtn">
+                        <b>转发</b>
+                        <em>(200)</em>
+                      </li>
+                      <li data-type="mainBtn">
+                        <b>评论</b>
+                        <em>200</em>
+                      </li>
+                      <li class="showMore" data-type="mainBtn">
+                        <b>更多</b>
+                        <em></em>
+                      </li>
+                    </ul>
+                  </div>
+                </article>
+
+                <div class="Fw_functionBoxes">
+                  <!--更多功能-->
+                  <div class="Fw_moreFunctions isSelected">
+                    <ul>
+                      <li class="Fw_iconCommentMsg"></li>
+                      <li class="Fw_iconReply"></li>
+                      <li class="Fw_iconRT"></li>
+                      <li class="Fw_iconFavMsg"></li>
+
+                      <li class="Fw_iconDel"></li>
+                    </ul>
+                  </div>
+
+                  <!--转发-->
+                  <div></div>
+
+                  <!--回复-->
+                  <div class="Fw_msgReplyBox isSelected">
+                    <div class="Fw_replyBox">
+                      <div class="userFace">
+                        <img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" />
+                      </div>
+                      <div class="replyArea">
+                        <textarea placeholder="请输入评论内容"></textarea>
+                        
+                        <div class="replyCtrl">
+
+                          <div>
+                            <span>140</span>
+                            <input type="button" class="Fw_btnSubmit" value="评论" />
+                          </div>
+
+                          <span class="Fw_iconExpression"></span>
+                          <label><input type="checkbox" />评论并转发</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="Fw_replyList">
+                      <ul>
+                        <li>
+                          <div class="userFace">
+                            <div><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></div>
+                          </div>
+                          <div class="replyDetail">
+                            <div>
+                              <em>Edwin</em>
+                              <span class="Fw_detailTime">2天前</span>
+                              <ul>
+                                <li class="Fw_iconDel"></li>
+                                <li class="Fw_iconDelPeople"></li>
+                                <li class="Fw_smallPM"></li>
+                                <li class="Fw_smallMsg"></li>
+                              </ul>
+                            </div>
+                            <p>哈哈</p>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="userFace">
+                            <div><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></div>
+                            <div><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></div>
+                          </div>
+                          <div class="replyDetail">
+                            <div>
+                              <em>Edwin</em>
+                              <span class="Fw_detailTime">2天前</span>
+                              <ul>
+                                <li class="Fw_iconDel"></li>
+                                <li class="Fw_iconDelPeople"></li>
+                                <li class="Fw_smallPM"></li>
+                                <li class="Fw_smallMsg"></li>
+                              </ul>
+                            </div>
+                            <p>回复<a href="#" data-type="people">@中国传奇</a>：一定不会的。</p>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="userFace">
+                            <div><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></div>
+                          </div>
+                          <div class="replyDetail">
+                            <div>
+                              <em>Edwin</em>
+                              <span class="Fw_detailTime">211天前</span>
+                              <ul>
+                                <li class="Fw_iconDel"></li>
+                                <li class="Fw_iconDelPeople"></li>
+                                <li class="Fw_smallPM"></li>
+                                <li class="Fw_smallMsg"></li>
+                              </ul>
+                            </div>
+                            <p>以后要是在这样就惨了!</p>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="Fw_replyListFn">
+                        <a href="#" data-type="more">查看剩余15条评论</a>
+                        <a href="#" data-type="close" data-icon="↑">收起</a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <!--每一条微博-->
+              <div class="Fw_msgDetailBox">
+
+                <!--微博内容及附属功能-->
+                <article>
+                  <div class="Fw_detail">
+                    <!--微博内容-->
+                    <p class="Fw_msg">
+                      <a href="#" data-type="topic">#微小说#</a>从前有只羊，每天干8个小时的活。一天，主人告诉它多干活有奖励，于是它每天干10个小时。接下来，主人每月把它身上的羊毛剪下三分之一。年底，主人给它织了件毛衣，然后告诉它诺，这是你的奖励，明年继续努力吧！<a href="#" data-type="people">@中国传奇</a><a href="http://t.cn/zOD" data-type="url">http://t.cn/zOD</a>
+                    </p>
+                  </div>
+
+                  <div class="Fw_detailFunctions">
+                    <!--客户端及发布时间-->
+                    <span class="Fw_detailTime" data-client="通过iphone">1分钟前</span>
+                    <ul>
+                      <li data-type="mainBtn">
+                        <b>转发</b>
+                        <em>(200)</em>
+                      </li>
+                      <li data-type="mainBtn">
+                        <b>评论</b>
+                        <em>200</em>
+                      </li>
+                      <li class="showMore" data-type="mainBtn">
+                        <b>更多</b>
+                        <em></em>
+                      </li>
+                    </ul>
+                  </div>
+                </article>
+
+                <div class="Fw_functionBoxes">
+                  <!--更多功能-->
+                  <div class="Fw_moreFunctions isSelected">
+                    <ul>
+                      <li class="Fw_iconCommentMsg"></li>
+                      <li class="Fw_iconReply"></li>
+                      <li class="Fw_iconRT"></li>
+                      <li class="Fw_iconFavMsg"></li>
+
+                      <li class="Fw_iconDel"></li>
+                    </ul>
+                  </div>
+
+                  <!--转发-->
+                  <div></div>
+
+                  <!--回复-->
+                  <div class="Fw_msgReplyBox isSelected">
+                    <div class="Fw_replyBox">
+                      <div class="userFace">
+                        <img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" />
+                      </div>
+                      <div class="replyArea">
+                        <textarea placeholder="请输入评论内容"></textarea>
+                        
+                        <div class="replyCtrl">
+
+                          <div>
+                            <span>140</span>
+                            <input type="button" class="Fw_btnSubmit" value="评论" />
+                          </div>
+
+                          <span class="Fw_iconExpression"></span>
+                          <label><input type="checkbox" />评论并转发</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="Fw_replyList">
+                      <ul>
+                        <li>
+                          <div class="userFace">
+                            <div><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></div>
+                          </div>
+                          <div class="replyDetail">
+                            <div>
+                              <em>Edwin</em>
+                              <span class="Fw_detailTime">2天前</span>
+                              <ul>
+                                <li class="Fw_iconDel"></li>
+                                <li class="Fw_iconDelPeople"></li>
+                                <li class="Fw_smallPM"></li>
+                                <li class="Fw_smallMsg"></li>
+                              </ul>
+                            </div>
+                            <p>哈哈</p>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="userFace">
+                            <div><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></div>
+                            <div><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></div>
+                          </div>
+                          <div class="replyDetail">
+                            <div>
+                              <em>Edwin</em>
+                              <span class="Fw_detailTime">2天前</span>
+                              <ul>
+                                <li class="Fw_iconDel"></li>
+                                <li class="Fw_iconDelPeople"></li>
+                                <li class="Fw_smallPM"></li>
+                                <li class="Fw_smallMsg"></li>
+                              </ul>
+                            </div>
+                            <p>回复<a href="#" data-type="people">@中国传奇</a>：一定不会的。</p>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="userFace">
+                            <div><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></div>
+                          </div>
+                          <div class="replyDetail">
+                            <div>
+                              <em>Edwin</em>
+                              <span class="Fw_detailTime">211天前</span>
+                              <ul>
+                                <li class="Fw_iconDel"></li>
+                                <li class="Fw_iconDelPeople"></li>
+                                <li class="Fw_smallPM"></li>
+                                <li class="Fw_smallMsg"></li>
+                              </ul>
+                            </div>
+                            <p>以后要是在这样就惨了!</p>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="Fw_replyListFn">
+                        <a href="#" data-type="more">查看剩余15条评论</a>
+                        <a href="#" data-type="close" data-icon="↑">收起</a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <!--每一条微博-->
+              <div class="Fw_msgDetailBox">
+
+                <!--微博内容及附属功能-->
+                <article>
+                  <div class="Fw_detail">
+                    <!--微博内容-->
+                    <p class="Fw_msg">
+                      <a href="#" data-type="topic">#微小说#</a>从前有只羊，每天干8个小时的活。一天，主人告诉它多干活有奖励，于是它每天干10个小时。接下来，主人每月把它身上的羊毛剪下三分之一。年底，主人给它织了件毛衣，然后告诉它诺，这是你的奖励，明年继续努力吧！<a href="#" data-type="people">@中国传奇</a><a href="http://t.cn/zOD" data-type="url">http://t.cn/zOD</a>
+                    </p>
+                  </div>
+
+                  <div class="Fw_detailFunctions">
+                    <!--客户端及发布时间-->
+                    <span class="Fw_detailTime" data-client="通过iphone">1分钟前</span>
+                    <ul>
+                      <li data-type="mainBtn">
+                        <b>转发</b>
+                        <em>(200)</em>
+                      </li>
+                      <li data-type="mainBtn">
+                        <b>评论</b>
+                        <em>200</em>
+                      </li>
+                      <li class="showMore" data-type="mainBtn">
+                        <b>更多</b>
+                        <em></em>
+                      </li>
+                    </ul>
+                  </div>
+                </article>
+
+                <div class="Fw_functionBoxes">
+                  <!--更多功能-->
+                  <div class="Fw_moreFunctions isSelected">
+                    <ul>
+                      <li class="Fw_iconCommentMsg"></li>
+                      <li class="Fw_iconReply"></li>
+                      <li class="Fw_iconRT"></li>
+                      <li class="Fw_iconFavMsg"></li>
+
+                      <li class="Fw_iconDel"></li>
+                    </ul>
+                  </div>
+
+                  <!--转发-->
+                  <div></div>
+
+                  <!--回复-->
+                  <div class="Fw_msgReplyBox isSelected">
+                    <div class="Fw_replyBox">
+                      <div class="userFace">
+                        <img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" />
+                      </div>
+                      <div class="replyArea">
+                        <textarea placeholder="请输入评论内容"></textarea>
+                        
+                        <div class="replyCtrl">
+
+                          <div>
+                            <span>140</span>
+                            <input type="button" class="Fw_btnSubmit" value="评论" />
+                          </div>
+
+                          <span class="Fw_iconExpression"></span>
+                          <label><input type="checkbox" />评论并转发</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="Fw_replyList">
+                      <ul>
+                        <li>
+                          <div class="userFace">
+                            <div><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></div>
+                          </div>
+                          <div class="replyDetail">
+                            <div>
+                              <em>Edwin</em>
+                              <span class="Fw_detailTime">2天前</span>
+                              <ul>
+                                <li class="Fw_iconDel"></li>
+                                <li class="Fw_iconDelPeople"></li>
+                                <li class="Fw_smallPM"></li>
+                                <li class="Fw_smallMsg"></li>
+                              </ul>
+                            </div>
+                            <p>哈哈</p>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="userFace">
+                            <div><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></div>
+                            <div><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></div>
+                          </div>
+                          <div class="replyDetail">
+                            <div>
+                              <em>Edwin</em>
+                              <span class="Fw_detailTime">2天前</span>
+                              <ul>
+                                <li class="Fw_iconDel"></li>
+                                <li class="Fw_iconDelPeople"></li>
+                                <li class="Fw_smallPM"></li>
+                                <li class="Fw_smallMsg"></li>
+                              </ul>
+                            </div>
+                            <p>回复<a href="#" data-type="people">@中国传奇</a>：一定不会的。</p>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="userFace">
+                            <div><img src="http://app.qlogo.cn/mbloghead/75e9e4d23b58e49e5cf0/50" /></div>
+                          </div>
+                          <div class="replyDetail">
+                            <div>
+                              <em>Edwin</em>
+                              <span class="Fw_detailTime">211天前</span>
+                              <ul>
+                                <li class="Fw_iconDel"></li>
+                                <li class="Fw_iconDelPeople"></li>
+                                <li class="Fw_smallPM"></li>
+                                <li class="Fw_smallMsg"></li>
+                              </ul>
+                            </div>
+                            <p>以后要是在这样就惨了!</p>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="Fw_replyListFn">
+                        <a href="#" data-type="more">查看剩余15条评论</a>
+                        <a href="#" data-type="close" data-icon="↑">收起</a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</body>
+</html>

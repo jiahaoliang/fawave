@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>长微博 - FaWave(发微) - 多微博插件</title>
+    <link rel="stylesheet" href="/css/popup.css" />
+    <link rel="stylesheet" href="/css/upimage.css" />
+    <link rel="stylesheet" href="/css/longtext.css" />
+    <style id="styleCustom"></style>
+    <script src="/scripts/lib/jquery.min.js"></script>
+    <script src="/scripts/lib/Base64.js"></script>
+    <script src="/scripts/lib/cvi_filter_lib.js"></script>
+    <script src="/scripts/lib/cvi_corner_lib.js"></script>
+    <script src="/scripts/i18n.js"></script>
+    <script src="/scripts/emotional.js"></script>
+    <script src="/scripts/utili.js"></script>
+    <script src="/scripts/lib/md5.js"></script>
+    <script src="/scripts/lib/jssha256.js"></script>
+    <script src="/scripts/lib/sha1.js"></script>
+    <script src="/scripts/lib/oauth.js"></script>
+    <script src="/scripts/apis.js"></script>
+    <script src="/scripts/ui.js"></script>
+    <script src="/scripts/text.js"></script>
+    <script src="/scripts/upimage.js"></script>
+    <script src="/scripts/longtext.js"></script>
+  </head>
+
+ <body style="margin: 0 5px;">
+  <div id="submitWarp">
+    <div class="w">
+    <ul id="accountsForSend"></ul>
+    <p style="margin-right: 2px;"><textarea id="txtContent"></textarea></p>
+    <div class="ctr">
+      <span id="wordCount_double">140</span>
+      /
+      <span id="wordCount">140</span>
+      &nbsp;
+      <a id="btnAddEmotional" href="" title=""><img src="images/face.gif" /><span class="__MSG_comm_emotional"></span></a>
+      &nbsp;
+      <a id="doing" href=""><img src="images/world_link.png" /><span class="__MSG_btn_share_title"></span></a>
+      &nbsp;
+      <button onclick="cleanTxtContent();" class="btn"><span class="__MSG_comm_clear"></span>
+      &nbsp;
+      <button onclick="window.close();" style="display:none;" class="btn"><span class="__MSG_comm_close"></span></button>
+      &nbsp;
+      <span id="success_close">
+        <input id="cb_success_close" checked="checked" 
+          type="checkbox" /><label for="cb_success_close"><span class="__MSG_comm_send_success_close_window"></span></label>
+      </span>
+      <button id="btnSend" type="button" class="btn send" disabled="disabled"><span class="__MSG_comm_send"></span></button>
+    </div>
+    </div>
+  </div><!-- submitWarp END -->
+    <ul id="uploadinfo"></ul>
+    <form id="uploadForm">
+      <div class="fileSel graph">
+        <strong id="progressBar" class="bar" style="width: 0%;"><span></span></strong>
+        <div class="selTip"><span class="__MSG_btn_select_file_only_title"></span></div>
+      </div>
+      <span id="imageFileWrap" style="display:none;">
+        <input type="file" id="imageFile" onchange="selectFile(this, true);" />
+      </span>
+    </form>
+  <div id="longtextWarp">
+    <p><label for="font_size"><span class="__MSG_comm_font_size"></span>:</label>
+      <select id="font_size">
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+        <option value="32">32</option>
+        <option value="33">33</option>
+        <option value="34">34</option>
+        <option value="35">35</option>
+        <option value="36">36</option>
+        <option value="37">37</option>
+        <option value="38">38</option>
+        <option value="39">39</option>
+        <option value="40">40</option>
+      </select>px
+      <label for="font_bold"><span class="__MSG_comm_font_bold"></span>:</label>
+      <input type="checkbox" id="font_bold" />
+      <label for="font_family"><span class="__MSG_comm_font_family"></span>:</label>
+      <select id="font_family">
+        <option values="cursive">cursive</option>
+        <option values="monaco">monaco</option>
+        <option values="monospace">monospace</option>
+        <option values="serif">serif</option>
+        <option values="sans-serif">sans-serif</option>
+        <option values="fantasy">fantasy</option>
+        <option values="default">default</option>
+        <option values="宋体">宋体</option>
+        <option values="微软雅黑">微软雅黑</option>
+        <option values="Arial">Arial</option>
+        <option values="Arial Black">Arial Black</option>
+        <option values="Arial Narrow">Arial Narrow</option>
+        <option values="Arial Rounded MT Bold">Arial Rounded MT Bold</option>
+        <option values="Bookman Old Style">Bookman Old Style</option>
+        <option values="Bradley Hand ITC">Bradley Hand ITC</option>
+        <option values="Century">Century</option>
+        <option values="Century Gothic">Century Gothic</option>
+        <option values="Comic Sans MS">Comic Sans MS</option>
+        <option values="Courier">Courier</option>
+        <option values="Courier New">Courier New</option>
+        <option values="Georgia">Georgia</option>
+        <option values="Gentium">Gentium</option>
+        <option values="Impact">Impact</option>
+        <option values="King">King</option>
+        <option values="Lucida Console">Lucida Console</option>
+        <option values="Lucida Grande">Lucida Grande</option>
+        <option values="Lalit">Lalit</option>
+        <option values="Modena">Modena</option>
+        <option values="Monotype Corsiva">Monotype Corsiva</option>
+        <option values="Papyrus">Papyrus</option>
+        <option values="Tahoma">Tahoma</option>
+        <option values="TeX">TeX</option>
+        <option values="Times">Times</option>
+        <option values="Times New Roman">Times New Roman</option>
+        <option values="Trebuchet MS">Trebuchet MS</option>
+        <option values="Verdana">Verdana</option>
+        <option values="Verona">Verona</option>
+      </select>
+      <button id="btnPrevLongText" type="button" class="btn"><span class="__MSG_comm_preview_longtext"></span></button>
+      </p>
+      <p><textarea id="longtext" style="width: 440px;"></textarea></p>
+  </div>
+  <div id="longtextPreview"></div>
+  <div id="msgInfoWarp" style=""></div>
+  
+  <!-- 表情选择 -->
+  <div id="face_box" class="layerBox" style="display:none;">
+    <div class="layerBoxCon1">
+      <div class="faceItem clearFix">
+        <div class="layerArrow"></div>
+        <div class="face_tab tab2">
+          <p><a id="btnFaceBoxClose" class="close" href=""></a></p>
+        </div>
+        <div class="faceItemPicbg">
+        </div>
+      </div>
+    </div>
+  </div>
+  <input id="face_box_target_id" type="hidden" value="" />
+  <!-- 表情选择 End -->
+
+  <script src="/scripts/ga.js"></script>
+ </body>
+</html>

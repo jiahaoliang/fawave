@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>FaWave(发微) - 多微博插件</title>
+  <link rel="stylesheet" href="css/popup.css" />
+  <link rel="stylesheet" href="css/emoji.css" />
+  <link rel="stylesheet" id="cssTheme" />
+  <style id="styleCustom"></style>
+  <style id="styleCustomResize"></style>
+
+  <script src="/scripts/lib/jquery.min.js"></script>
+  <script src="/scripts/lib/Base64.js"></script>
+  <script src="/scripts/lib/jquery.rotate.1-1.js"></script>
+  <script src="/scripts/lib/shotenjin.js" ></script>
+  <script src="/scripts/lib/keypress.js" ></script>
+  <script src="/scripts/i18n.js"></script>
+  <script src="/scripts/provinces.js"></script>
+  <script src="/scripts/emotional.js"></script>
+  <script src="/scripts/emoji.js"></script>
+  <script src="/scripts/utili.js"></script>
+  <script src="/scripts/lib/sha1.js"></script>
+  <script src="/scripts/lib/md5.js"></script>
+  <script src="/scripts/lib/oauth.js"></script>
+  <script src="/scripts/lib/jssha256.js"></script>
+  <script src="/scripts/apis.js"></script>
+  <script src="/scripts/ui.js"></script>
+  <script src="/scripts/text.js"></script>
+  <script src="/scripts/shortcuts.js"></script>
+  <script src="/scripts/popup.js"></script>
+ </head>
+
+ <body>
+   <div id="wrapper">
+    <div id="submitWarp">
+      <div class="w">
+      <ul id="accountsForSend"></ul>
+      <textarea id="txtContent" ></textarea>
+      <div class="ctr">
+        &nbsp;
+        <span id="wordCount_double">140</span>
+        /
+        <span id="wordCount">140</span>
+        &nbsp;
+        <a id="btnAddEmotional" href="">
+          <img src="/images/face.gif" /><span class="__MSG_comm_emotional"></span>
+        </a>
+        &nbsp;
+        <a id="btnUploadPic" href="">
+          <img src="/images/image.gif" /><span class="__MSG_comm_pic"></span>
+        </a>
+        &nbsp;
+        <button class="btn cleanTxtContentBtn"><span id="comm_clear"></span></button>
+        <span id="doingWarp"></span>
+        <span>
+          <a id="urlShortenBtn" href=""><img src="/images/link_add.png" /></a>
+          <input type="text" id="urlShortenInp" />
+        </span>
+        <input id="btnSend" type="button" class="btn send" disabled="disabled" />
+      </div>
+      </div>
+    </div><!-- submitWarp END -->
+    <div id="header">
+      <span id="loading"><img src="/images/loader.gif" /></span>
+      <div class="user">
+        <a class="face" href="#"><img class="icon" src="/images/1.gif" /><img class="bt" src="/images/1.gif" /></a>
+        <span class="info">
+          <a class="name_link" href="#"><span class="name"></span><br/></a>
+          <span class="nums"></span>
+        </span>
+        <span class="top_btns">
+          <span class="search_span">
+            <a id="btnShowSearch" href="" class="search"><img src="/images/search.png" /><span id="comm_search"></span></a>
+            <span class="searchWrap">
+              <input type="text" class="txtSearch" />
+              <a id="btnSearch" href="" class="btnSearch"><img src="/images/search.png" /></a>
+              <img class="arrow" src="/images/layerArrow.gif"/>
+            </span>
+          </span>
+          <span class="user_search_span">
+            <a id="btnShowSearchUser" href="" 
+              class="search search_user"><img src="/images/face.gif" /><span id="comm_search_user"></span></a>
+            
+            <span class="searchWrap searchUserWrap">
+                <input type="text" class="txtSearch" />
+                <a id="btnSearchUser" href="" class="btnSearch"><img src="/images/search.png" /></a>
+                <img class="arrow" src="/images/layerArrow.gif" />
+            </span>
+          </span>
+          <a id="btnLongText" href="" class="quickUpImg"><img src="/images/longtext.png" /><span id="comm_longtext"></span></a>
+          <a id="btnQuickUpImg" href="" class="quickUpImg"><img src="/images/image.gif" /><span class="__MSG_comm_pic"></span></a>
+        </span>
+        <span id="topAd"></span>
+        <a href="" class="write toogleMsgInput_btn"><span id="comm_new_tweet"></span><b></b></a>
+      </div>
+      <ul id="tl_tabs" class="tabs">
+        <span class="btns">
+          <a id="doingWithCapture" href=""><img src="/images/capture.png" /></a>
+          <a id="doing" href=""><img src="/images/world_link.png" /></a>
+          <a id="btnForceRefresh" href=""><img src="/images/refresh.png" /></a>
+          <a id="btnNewWinPopup" href=""><img src="/images/new_win.png" /></a>
+          <a id="btnAlertMode" href="" title="" mode="alert"><img src="/images/alert_mode.png" /></a>
+          <a id="btnAutoInsert" href="" title="" mode="notautoinsert"><img src="/images/notautoinsert.png" /></a>
+        </span>
+        <li class="tab-friends_timeline timeline_tab" href="#friends_timeline_timeline">
+          <span id="comm_TabName_friends_timeline"></span><span class="unreadCount"></span>
+        </li>
+        <li class="tab-mentions timeline_tab" href="#mentions_timeline">
+          <span id="comm_TabName_mentions"></span><span class="unreadCount"></span>
+        </li>
+        <li class="tab-comments_mentions timeline_tab" href="#comments_mentions_timeline">
+          <span id="comm_TabName_comments_mentions"></span><span class="unreadCount"></span>
+        </li>
+        <li class="tab-comments_timeline timeline_tab" href="#comments_timeline_timeline">
+          <span id="comm_TabName_comments_timeline"></span><span class="unreadCount"></span>
+        </li>
+        <li class="tab-direct_messages timeline_tab" href="#direct_messages_timeline">
+          <span id="comm_TabName_direct_messages"></span><span class="unreadCount"></span>
+        </li>
+        <li class="tab-favorites only_click timeline_tab" href="#favorites_timeline">
+          <span id="comm_TabName_favorites"></span><span class="unreadCount"></span>
+        </li>
+        <li class="tab-followers only_click timeline_tab" href="#followers_timeline">
+          <span id="comm_TabName_followers"></span><span class="unreadCount"></span>
+        </li>
+        <li class="tab-user_timeline only_click timeline_tab" href="#user_timeline_timeline">
+          <span id="comm_TabName_user_timeline"></span><span class="unreadCount"></span>
+        </li>
+      </ul>
+      <div class="clearFix"></div>
+    </div>
+    <div class="warp">
+      <div id="friends_timeline_timeline" class="list_p">
+      <div class="list_warp">
+        <ul class="list"></ul>
+        <div id="friends_timeline_rm_loading" class="readmore_loading"><img src="/images/loading_s.gif" /></div>
+      </div>
+      </div>
+      <div id="mentions_timeline" class="list_p" style="display:none;">
+      <div class="list_warp">
+        <ul class="list"></ul>
+        <div id="mentions_rm_loading" class="readmore_loading"><img src="/images/loading_s.gif" /></div>
+      </div>
+      </div>
+      <div id="comments_mentions_timeline" class="list_p" style="display:none;">
+      <div class="list_warp">
+        <ul class="list"></ul>
+        <div id="comments_mentions_rm_loading" class="readmore_loading"><img src="images/loading_s.gif" /></div>
+      </div>
+      </div>
+      <div id="comments_timeline_timeline" class="list_p" style="display:none;">
+      <div class="list_warp">
+        <ul class="list"></ul>
+        <div id="comments_timeline_rm_loading" class="readmore_loading"><img src="images/loading_s.gif" /></div>
+      </div>
+      </div>
+      <div id="direct_messages_timeline" class="list_p" style="display:none;">
+      <div class="list_warp">
+        <div style="padding: 2px 0 0 10px;">
+          <span id="abb_send_direct_message_to_user"></span>
+          @<input type="text" class="txtSearch" id="direct_message_user" />
+        </div>
+        <ul class="list"></ul>
+        <div id="direct_messages_rm_loading" class="readmore_loading"><img src="images/loading_s.gif" /></div>
+      </div>
+      </div>
+      <div id='favorites_timeline' class="list_p" style="display:none;">
+        <div class="list_warp">
+          <ul class="list"></ul>
+          <div id="favorites_rm_loading" class="readmore_loading"><img src="images/loading_s.gif" /></div>
+        </div>
+      </div>
+      <div id="followers_timeline" class="list_p" style="display:none;">
+      <div class="list_warp">
+        <div id="fans_tab" class="tab2">
+          <p>
+            <span class="tab_friends" t="friends">
+              <font><span id="comm_my"></span></font><b class="__MSG_comm_follow"></b>
+            </span>
+            <span class="active tab_followers" t="followers">
+              <font><span id="comm_my"></span></font><b class="__MSG_comm_fans"></b>
+            </span>
+          </p>
+        </div>
+        <ul class="list"></ul>
+        <div id="followers_rm_loading" class="readmore_loading"><img src="images/loading_s.gif" /></div>
+      </div>
+      </div>
+      <div id="user_timeline_timeline" class="list_p" style="display:none;">
+      <div class="list_warp">
+        <ul class="list"></ul>
+        <div id="user_timeline_rm_loading" class="readmore_loading"><img src="images/loading_s.gif" /></div>
+      </div>
+      </div>
+      
+      <div id="accountListDock">
+        <ul></ul>
+      </div><!-- accountListDock END -->
+
+      <span id="gototop" class="gototop" title="返回顶部"><img src="/images/go_to_top.png" /></span>
+
+    </div><!-- div.wrap END -->
+    
+    <!-- 表情选择 -->
+    <div id="face_box" class="layerBox" style="display:none;">
+      <div class="layerBoxCon1">
+        <div class="faceItem clearFix">
+          <div class="layerArrow"></div>
+          <div class="face_tab tab2">
+            <p>
+              <a id="btnFaceBoxClose" class="close" href=""></a>
+            </p>
+          </div>
+          <div class="faceItemPicbg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <input id="face_box_target_id" type="hidden" value="" />
+    <!-- 表情选择 End -->
+  </div><!-- wrapper END -->
+
+  <div id="ye_dialog_window" >
+    <a title="关闭 Close" href="" class="hideReplyInputBtn" id="ye_dialog_close"></a>
+    <div id="ye_dialog_title"></div>
+    <div id="ye_dialog_body" >
+      <div class="replyDialog">
+        <textarea class="uTextarea" id="replyTextarea"></textarea><br/>
+        <span id="replyInputCount" class="conTinge">(还可以输入140字)</span>
+        <a id="btnAddReplyEmotional" href=""><img src="images/face.gif" /><span class="__MSG_comm_emotional"></span></a>
+        <p>
+          <input type="checkbox" id="chk_sendOneMore" /><label for="chk_sendOneMore" id="txt_sendOneMore"></label><br/>
+          <input type="checkbox" id="chk_sendOneMore2" /><label for="chk_sendOneMore2" id="txt_sendOneMore2"></label><br/>
+          <input type="checkbox" id="chk_originalComment" /><label for="chk_originalComment" id="txt_originalComment">包含原评论</label>
+        </p>
+        <button id="replySubmit" type="button" class="btn" style="float: right;"><span id="comm_send"></span></button>
+        <a class="hideReplyInputBtn" href="" 
+          style="float: right; color: #99a8bb; margin-right: 20px; margin-top: 5px; font-size: 10px;">
+          <span id="comm_close"></span>
+        </a>
+      </div>
+    </div>
+    <input type="hidden" id="actionType" value="" />
+    <input type="hidden" id="replyTweetId" value="" />
+    <input type="hidden" id="replyUserName" value="" />
+    <input type="hidden" id="replyUserId" value="" />
+    <input type="hidden" id="whisperToUserId" value="" />
+    <input type="hidden" id="repostTweetId" value="" />
+    <input type="hidden" id="commentUserId" value="" />
+    <input type="hidden" id="commentTweetId" value="" />
+    <input type="hidden" id="commentCommentId" value="" /><!-- 回复的评论ID -->
+  </div>
+
+  <div id="msgInfoWarp" style=""></div>
+
+  <!-- 上传图片预览 -->
+  <div id="upImgPreview" class="upload_image_preview">
+    <img class="arrow" src="images/layerArrow.gif" />
+    <a class="close" 
+      href="javascript:window.imgForUpload = null; $('#upImgPreview').hide(); $('#txtContent').focus();" title="Close">
+    </a>
+    <div class="img"></div>
+    <div class="loading_bar"><div><span></span></div></div>
+  </div>
+  <div id="upImgPreview_reply" class="upload_image_preview">
+    <img class="arrow" src="images/layerArrow.gif" />
+    <a class="close" 
+      href="javascript:window.imgForUpload_reply = null; $('#upImgPreview_reply').hide(); countReplyText();" title="Close">
+    </a>
+    <div class="img"></div>
+    <div class="loading_bar"><div><span></span></div></div>
+  </div>
+
+  <!-- 模板选择 -->
+  <div style="display:none;">
+    <textarea id="tp_time_line">
+      <li class="tweetItem showCounts_#{tweet.id} <?js if (!tweet.readed) { ?>unread-item<?js } ?> <?js if (tweet.myTweet) { ?>myTweet<?js } ?> " id="tweet#{tweet.id}" did="#{tweet.id}">
+        <div class="li_wrap clearFix">
+        <div class="usericon">
+            <span class="showtip">
+            <a class="user_head getUserTimelineBtn" href=""
+              data-screen_name="#{user.screen_name}" data-id="#{user.id}" rhref="#{user.t_url}">
+              <img src="#{user.profile_image_url.replace('24x24', '48x48')}" />
+            </a>
+            #{buildTipboxUserInfo(user, show_fullname)}
+            </span>
+        </div>
+        <div class="mainContent commentWrap">
+          <span class="arrow_r"></span>
+          <div class="userName">
+            <a user_id="#{user.id}" user_screen_name="#{user.screen_name}" 
+              href="" class="getUserTimelineBtn" data-screen_name="#{user.screen_name}" data-id="#{user.id}" 
+              rhref="#{user.t_url}" title="#{getUserCountsInfo(user)}">
+              #{user.screen_name}<?js if (user.verified) { ?><img title="#{_u.i18n('comm_verified')}" 
+              src="/images/verified#{user.verified_type && user.verified_type > 0 ? '_blue.png' : '.gif'}" /><?js } ?>
+            </a>
+            <?js if (show_fullname) { ?><span class="fullname">#{user.name}</span> <?js } ?>
+            <span class="edit">
+              <?js if(tweet.related_dialogue_url){ ?>
+              <a href="#{tweet.related_dialogue_url}" 
+                title="#{_u.i18n('comm_show_related_dialogue')}" target="_blank"><img src="images/inreply.png" /></a>
+              <?js } ?>
+              <?js if (support_instapaper) { ?>
+              <a href="" class="readLaterBtn" data-type="instapaper" title="#{_u.i18n('btn_read_later_title')}">RL</a>
+              <?js } ?>
+              <?js if (support_readitlater) { ?>
+              <a href="" class="readLaterBtn" data-type="readitlater" title="#{_u.i18n('btn_read_it_later_title')}">RIL</a>
+              <?js } ?>
+              #{ btn.addFavoritesMsgBtn + btn.delFavoritesMsgBtn + (tweet.favorite_count ? '<span class="commentCounts">(' + tweet.favorite_count + ')</span>' : '') + btn.replyBtn + btn.retweetBtn + btn.oretweetBtn + btn.repostBtn + btn.repostCounts + btn.commentBtn + btn.commentCounts + btn.likeBtn + btn.new_msgBtn + btn.delTweetBtn + btn.delCommentBtn + btn.delDirectMsgBtn }
+              <!--a href="" class="translateTextBtn" title="#{_u.i18n('btn_translate_title')}">#{_u.i18n("btn_translate")}</a-->
+            </span>
+          </div>
+          <div class="msg">
+            <div class="tweet">
+              <div class="tweet_text">#{processMsg(account, tweet)} #{btn.showMapBtn}
+                <?js if (tweet.crosspostSource) { ?>
+                <a target="_blank" href="#{tweet.crosspostSource}" title="#{_u.i18n('comm_show_original')}">#{_u.i18n('comm_show_original')}</a>
+                <?js } ?>
+              </div>
+              <?js 
+              if (tweet.thumbnail_pic) { ?>
+              <div>
+              <?js
+                var pics = [];
+                if (!Array.isArray(tweet.thumbnail_pic)) {
+                  pics = [[tweet.thumbnail_pic, tweet.bmiddle_pic, tweet.original_pic]];
+                } else {
+                  for (var i = 0; i < tweet.thumbnail_pic.length; i++) {
+                    pics.push([tweet.thumbnail_pic[i], tweet.bmiddle_pic[i], tweet.original_pic[i]]);
+                  }
+                }
+                for (var i = 0; i < pics.length; i++) {
+                  var pic = pics[i];
+              ?>
+                <a bmiddle="#{pic[1]}" 
+                  original="#{pic[2]}" title="#{_u.i18n("btn_show_original_pic_title")}" 
+                  class="thumbnail_pic">
+                  <img class="imgicon pic" src="#{pic[0]}" />
+                </a>
+              
+              <?js } ?>
+              </div>
+
+              <?js } ?>
+              <?js if (tweet.retweet_me || tweet.retweet_user) { ?>
+               <div class="retweet_info">#{_u.i18n("comm_retweet_by_before")} <?js if(tweet.retweet_me){ ?>
+                <a href="" class="getUserTimelineBtn"
+                  data-screen_name="#{tweet.retweet_me.screen_name}" data-id="#{tweet.retweet_me.id}" 
+                  rhref="#{tweet.retweet_me.t_url}">
+                  #{tweet.retweet_me.screen_name}<?js if (tweet.retweet_me.verified) { ?><img title="#{_u.i18n('comm_verified')}" src="/images/verified#{tweet.retweet_me.verified_type && tweet.retweet_me.verified_type > 0 ? '_blue.png' : '.gif'}" /><?js } ?>
+                </a>
+                <?js if (show_fullname) { ?><span class="fullname">#{tweet.retweet_me.name}</span> <?js } ?>
+               <?js } ?>
+                 <?js if (tweet.retweet_user) { ?>
+                  <?js if (tweet.retweet_me) { ?>、<?js } ?>
+                  <a href="" class="getUserTimelineBtn"
+                    data-screen_name="#{tweet.retweet_user.screen_name}" data-id="#{tweet.retweet_user.id}" 
+                    rhref="#{tweet.retweet_user.t_url}">
+                  #{tweet.retweet_user.screen_name}<?js if (tweet.retweet_user.verified) { ?><img title="#{_u.i18n('comm_verified')}" src="/images/verified#{tweet.retweet_user.verified_type && tweet.retweet_user.verified_type > 0 ? '_blue.png' : '.gif'}" /><?js } ?>
+                </a>
+                <?js if(show_fullname) { ?><span class="fullname">#{tweet.retweet_user.name}</span> <?js } ?>
+               <?js } ?> #{_u.i18n("comm_retweet_by_after")}</div>
+               <?js } ?>
+            </div>
+            <?js if (tweet.retweeted_status && tweet.retweeted_status.text) { ?>
+            <!-- 转发 -->
+            <!-- {{retweeted_status_in}} -->
+            <!-- 转发 End -->
+            <?js } ?>
+          </div>
+          <div class="comments">
+            <p style="text-align:right;"><a href="" class="comment_hide_list_btn" data-id="#{tweet.id}">#{_u.i18n("btn_hide_comments")}</a></p>
+            <ul class="comment_list"></ul>
+            <div class="comment_paging" page="1">
+              <a class="pre_page commentPageBtn" href="" data-id="#{tweet.id}" data-isPre="1" style="display:none;">#{_u.i18n("btn_prev_page")}</a>
+              <a class="next_page commentPageBtn" href="" data-id="#{tweet.id}" data-isPre="0" style="display:none;">#{_u.i18n("btn_next_page")}</a>
+            </div>
+            <br />
+          </div>
+          <?js if (tweet.created_at) { ?>
+          <div class="msgInfo">
+             <?js if (tweet.t_url) { ?>
+             <a href="#{tweet.t_url}" target="_blank">#{new Date(tweet.created_at).format("yyyy-MM-dd hh:mm:ss")}</a> 
+             <?js } else { ?>
+             #{new Date(tweet.created_at).format("yyyy-MM-dd hh:mm:ss")}
+             <?js } ?>
+             #{_u.i18n('comm_post_by')} #{tweet.source|| _u.i18n("comm_web_site")}
+             <?js if (!tweet.retweeted_status && tweet.in_reply_to_status_id && tweet.in_reply_to_screen_name) { ?>
+             <a href="javascript:void(0);" class="show_source_status_btn" status_id="#{tweet.in_reply_to_status_id}" 
+                title="#{_u.i18n('comm_show_original_status')}">#{_u.i18n("btn_show_source_status", [tweet.in_reply_to_screen_name])}</a>
+             <?js } ?>
+             <!-- 提示私信是回复给谁的 -->
+             #{btn.messageReplyToBtn}
+          </div>
+          <?js } ?>
+        </div>
+        </div> <!-- end .li_wrap -->
+        <?js if ((tweet.retweeted_status && (tweet.retweeted_status.text || tweet.retweeted_status.full_text)) || tweet.quoted_status && tweet.quoted_status.full_text) { ?>
+        <!-- 转发 -->
+        <!-- {{retweeted_status_out}} -->
+        <!-- {{retweeted_retweeted_status_out}} -->
+        <!-- 转发 End -->
+        <?js } ?>
+      </li>
+    </textarea>
+    <!-- 转发模板（包括评论、@我的所带的原status） -->
+    <textarea id="tp_time_line_rt">
+      <!-- 转发 -->
+      <div class="msg">
+        <div class="tweetItem retweeted commentWrap showCounts_#{tweet.retweeted_status.id} <?js if (is_rt_rt) { ?>rt_retweeted<?js } ?>" id="tweet#{tweet.retweeted_status.id}">
+          <div class="userName">
+              <?js if (is_rt_rt) { ?>
+              <span class="showtip">
+              <a user_id="#{retweeted_status_user.id}" user_screen_name="#{retweeted_status_user.screen_name}" 
+                href="" class="getUserTimelineBtn"
+                data-screen_name="#{retweeted_status_user.screen_name}" data-id="#{retweeted_status_user.id}">@#{retweeted_status_user.screen_name}</a>
+              <?js if (show_fullname) { ?><span class="fullname">#{retweeted_status_user.name}</span> <?js } ?>
+              #{buildTipboxUserInfo(retweeted_status_user, show_fullname)}
+              </span>
+              <?js } ?>
+              <?js if ((tType === 'comments_timeline' || tType === 'comments_mentions') && !is_rt_rt) { ?> 
+                #{_u.i18n('comm_comment_to_before')} 
+              <?js }else{ ?> 
+                #{_u.i18n('comm_repost_to_before')}
+              <?js } ?>
+            <span class="showtip">
+              <a href="" class="getUserTimelineBtn"
+                data-screen_name="#{tweet.retweeted_status.user.screen_name}" data-id="#{tweet.retweeted_status.user.id}" 
+                rhref="#{tweet.retweeted_status.user.t_url}">
+                @#{tweet.retweeted_status.user.screen_name}<?js if(tweet.retweeted_status.user.verified){ ?><img title="#{_u.i18n('comm_verified')}" src="/images/verified#{tweet.retweeted_status.user.verified_type && tweet.retweeted_status.user.verified_type > 0 ? '_blue.png' : '.gif'}" /><?js } ?>
+              </a>
+              <?js if (show_fullname) { ?>
+              <span class="fullname">#{tweet.retweeted_status.user.name}</span>
+              <?js } ?>
+              #{buildTipboxUserInfo(tweet.retweeted_status.user, show_fullname)}
+            </span>
+            #{_u.i18n("comm_repost_to_after")}: 
+            <span class="edit">
+              <?js if (support_instapaper) { ?>
+              <a href="" class="readLaterBtn" data-type="instapaper" title="#{_u.i18n('btn_read_later_title')}">RL</a>
+              <?js } ?>
+              <?js if (support_readitlater){ ?>
+              <a href="" class="readLaterBtn" data-type="readitlater" title="#{_u.i18n('btn_read_it_later_title')}">RIL</a>
+              <?js } ?>
+              #{ btn.rtAddFavoritesMsgBtn + btn.rtReplyBtn + btn.rtRetweetBtn + btn.rtRepostBtn + btn.rtRepostCounts + btn.rtOretweetBtn + btn.rtCommentBtn + btn.rtCommentCounts + btn.likeBtn}
+              <!--a class="translateTextBtn" href="" title="#{_u.i18n('btn_translate_title')}">#{_u.i18n("btn_translate")}</a-->
+            </span>
+          </div>
+          <div class="tweet_text">#{processMsg(account, tweet.retweeted_status)} #{btn.rtShowMapBtn}
+            <?js if (tweet.crosspostSource) { ?>
+            <a target="_blank" href="#{tweet.crosspostSource}" title="#{_u.i18n('comm_show_original')}">#{_u.i18n('comm_show_original')}</a>
+            <?js } ?>
+          </div>
+
+          <?js 
+          if (tweet.retweeted_status.thumbnail_pic || (tweet.quoted_status && tweet.quoted_status.thumbnail_pic)) { ?>
+          <div>
+            <?js
+              var pics = [];
+              if (tweet.retweeted_status.thumbnail_pic){
+                if (!Array.isArray(tweet.retweeted_status.thumbnail_pic)) {
+                  pics = [[tweet.retweeted_status.thumbnail_pic, tweet.retweeted_status.bmiddle_pic, tweet.retweeted_status.original_pic]];
+                } else {
+                  for (var i = 0; i < tweet.retweeted_status.thumbnail_pic.length; i++) {
+                    pics.push([tweet.retweeted_status.thumbnail_pic[i], tweet.retweeted_status.bmiddle_pic[i], tweet.retweeted_status.original_pic[i]]);
+                  }
+                }
+              } else { 
+                if (!Array.isArray(tweet.quoted_status.thumbnail_pic)) {
+                  pics = [[tweet.quoted_status.thumbnail_pic, tweet.quoted_status.bmiddle_pic, tweet.quoted_status.original_pic]];
+                } else {
+                  for (var i = 0; i < tweet.quoted_status.thumbnail_pic.length; i++) {
+                    pics.push([tweet.quoted_status.thumbnail_pic[i], tweet.quoted_status.bmiddle_pic[i], tweet.quoted_status.original_pic[i]]);
+                  }
+                }
+              }
+              for (var i = 0; i < pics.length; i++) {
+                var pic = pics[i];
+            ?>
+              <a bmiddle="#{pic[1]}" 
+                original="#{pic[2]}" title="#{_u.i18n("btn_show_original_pic_title")}" 
+                class="thumbnail_pic">
+                <img class="imgicon pic" src="#{pic[0]}" />
+              </a>
+            
+            <?js } ?>
+          </div>
+
+          <?js } ?>
+
+          <!-- {{retweeted_retweeted_status_in}} -->
+          <?js if (tweet.retweeted_status.created_at) { ?>
+          <div class="msgInfo">
+            <?js if (tweet.retweeted_status.t_url) { ?>
+            <a href="#{tweet.retweeted_status.t_url}" target="_blank">#{new Date(tweet.retweeted_status.created_at).format("yyyy-MM-dd hh:mm:ss")}</a>
+            <?js } else { ?>
+            #{new Date(tweet.retweeted_status.created_at).format("yyyy-MM-dd hh:mm:ss")}
+            <?js } ?>
+            #{_u.i18n('comm_post_by')} #{tweet.retweeted_status.source || _u.i18n("comm_web_site")}
+            <?js if (!tweet.retweeted_status.retweeted_status && tweet.retweeted_status.in_reply_to_status_id && tweet.retweeted_status.in_reply_to_screen_name) { ?>
+             <a href="javascript:void(0);" class="show_source_status_btn" status_id="#{tweet.retweeted_status.in_reply_to_status_id}" 
+                 title="#{_u.i18n('comm_show_original_status')}">#{_u.i18n("btn_show_source_status", [tweet.retweeted_status.in_reply_to_screen_name])}</a>
+             <?js } ?>
+          </div>
+          <?js } ?>
+          <div class="comments">
+            <p style="text-align:right;">
+              <a href="" class="comment_hide_list_btn" 
+                data-id="#{tweet.retweeted_status.id}">#{_u.i18n("btn_hide_comments")}</a></p>
+            <ul class="comment_list"></ul>
+            <div class="comment_paging" page="1">
+              <a class="pre_page commentPageBtn" href="" 
+                data-id="#{tweet.retweeted_status.id}" data-isPre="1" style="display:none;">#{_u.i18n("btn_prev_page")}</a>
+              <a class="next_page commentPageBtn" href="" 
+                data-id="#{tweet.retweeted_status.id}" data-isPre="0" style="display:none;">#{_u.i18n("btn_next_page")}</a>
+            </div>
+            <br />
+          </div>
+        </div>
+      </div>
+      <!-- 转发 End -->
+    </textarea>
+    <!-- 用户信息tipbox模板 -->
+    <textarea id="tp_tipbox_user_info">
+      <div class="tipbox">
+        <div>
+          <div class="user_head"><img src="#{user.profile_image_url}" /></div>
+          <div class="user_info">
+            <p><a href="" class="getUserTimelineBtn" data-screen_name="#{user.screen_name}" data-id="#{user.id}" 
+              rhref="#{user.t_url}">#{user.screen_name}
+              <?js if (user.verified) { ?><img title="#{_u.i18n('comm_verified')}" 
+              src="/images/verified#{user.verified_type && user.verified_type > 0 ? '_blue.png' : '.gif'}" /><?js } ?>
+            </a>
+            <?js if (show_fullname) { ?>
+            <span class="fullname">#{user.name}</span>
+            <?js } ?>
+            </p>
+            <p>
+              <img class="small_icon sicon_gender_#{user.gender}" src="/images/transparent.gif" 
+                title="<?js if (user.gender == 'm'){ ?> #{_u.i18n('comm_man')} <?js } else if (user.gender === 'f'){ ?> #{_u.i18n('comm_female')} <?js }else{ ?> #{_u.i18n('comm_gender_unknow')} <?js } ?>" />
+               <?js if (user.province) { ?>
+               #{provinces[user.province] ? provinces[user.province].name : user.province}, #{provinces[user.province] ? provinces[user.province]["citys"][user.city]:user.city}
+               <?js } ?>
+            </p>
+            <p>#{_u.i18n("comm_follow")}: 
+              <span><a class="showFollowersBtn" href="" data-type="friends" data-name="#{user.name}"
+                data-screen_name="#{user.screen_name}" data-uid="#{user.id}">#{user.friends_count == undefined ? _u.i18n("comm_view"): user.friends_count}</a></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;#{_u.i18n("comm_fans")}: 
+              <span><a class="showFollowersBtn" href="" data-type="followers" data-name="#{user.name}"
+                data-screen_name="#{user.screen_name}" data-uid="#{user.id}">#{user.followers_count == undefined ? _u.i18n("comm_view"): user.followers_count}</a></span>
+            <?js if (user.bi_followers_count !== undefined) { ?>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            #{_u.i18n("comm_bi_follower")}: <span>#{user.bi_followers_count}</span>
+            <?js } ?>
+            </p>
+            <p>#{_u.i18n("comm_tweet")}: 
+              <span><a href="" class="getUserTimelineBtn" data-screen_name="#{user.screen_name}" data-id="#{user.id}">#{user.statuses_count == undefined ? _u.i18n("comm_view"): user.statuses_count}</a></span>
+            <?js if (user.favourites_count !== undefined) { ?>
+            &nbsp;&nbsp;&nbsp;
+            #{_u.i18n("comm_favourite")}: <span>#{user.favourites_count}</span>
+            <?js } ?>
+            </p>
+          </div>
+        </div>
+        <div class="des">
+        <?js if (user.verified_reason) { ?>
+        #{_u.i18n("comm_verified_reason")}：#{user.verified_reason}<br/>
+        <?js } ?>
+        <?js if (user.email) { ?>
+        #{_u.i18n("comm_email")}: <a href="mailto:${user.email}">${user.email}</a><br/>
+        <?js } ?>
+        <?js if (user.homepage) { ?>
+        #{_u.i18n("comm_homepage")}: <a href="${user.homepage}">${user.homepage}</a><br/>
+        <?js } ?>
+        <?js if (user.birthday) { ?>
+        #{_u.i18n("comm_birthday")}: ${user.birthday}<br/>
+        <?js } ?>
+        <?js if (user.description) { ?>
+        #{_u.i18n("comm_description")}: ${user.description}<br/>
+        <?js } ?>
+        <?js if (user.jobs && user.jobs.length > 0) { ?>
+        #{_u.i18n("comm_jobs")}: ${user.jobs.join(', ')}<br/>
+        <?js } ?>
+        </div>
+      </div>
+    </textarea>
+    <!-- 用户信息tipbox模板 END -->
+
+    <!-- 用户信息模板(查看用户微博tab用) -->
+    <textarea id="tp_user_info">
+      <div class="userinfo_detail">
+        <div class="user_head"><img src="#{user.profile_image_url}" /></div>
+        <div class="user_info">
+          <div class="userName"><a href="#{user.t_url}">#{user.screen_name}<?js if(user.verified){ ?><img title="#{_u.i18n('comm_verified')}" 
+            src="/images/verified#{user.verified_type && user.verified_type > 0 ? '_blue.png' : '.gif'}" /><?js } ?></a>
+          <?js if(show_fullname) { ?><span class="fullname">#{user.name}</span> <?js } ?>
+          <?js if(!user.is_me){ ?>
+            <a class="follow replytweet" href=""
+              data-screen_name="#{user.screen_name}" data-uid="#{user.id}">@</a>
+            <a class="follow doNewMessageBtn" href="" 
+              data-screen_name="#{user.screen_name}" data-uid="#{user.id}">#{_u.i18n("abb_direct_message")}</a>
+            <?js if(support_blocking) { ?>
+                <a class="follow destroyBlockingBtn" href="" title='#{_u.i18n("destroy_blocking_title")}' 
+                   style="#{user.blocking ? '' : 'display:none'}"
+                   data-uid="#{user.id}">#{_u.i18n("destroy_blocking")}</a>
+              <a class="follow createBlockingBtn" href="" title='#{_u.i18n("create_blocking_title")}' 
+                 style="#{user.blocking ? 'display:none' : ''}"
+                 data-uid="#{user.id}">#{_u.i18n("create_blocking")}</a>
+          <?js } ?>
+          <?js if(support_follow) { ?>
+            <a class="follow follow_button_destroy" 
+              <?js if (user.followed_by === false) { ?>style="display:none;"<?js } ?> href="" 
+              data-uid="#{user.id}" data-screen_name="#{user.screen_name}">#{_u.i18n("comm_f_destroy")}</a>
+            <a class="follow follow_button_create" 
+              <?js if (user.followed_by === true) { ?>style="display:none;"<?js } ?> href="" 
+              data-uid="#{user.id}" data-screen_name="#{user.screen_name}"><span class="plus">+</span>#{_u.i18n("comm_f_create")}</a>
+            <?js if (user.followed_by === true) { ?>
+            <span class="followed">
+              <?js if (user.following === true) { ?>
+              #{_u.i18n("comm_f_followed_by_and_following")}
+              <?js } else { ?>
+              #{_u.i18n("comm_f_followed_by")}
+              <?js } ?>
+            </span>
+            <?js } else if (user.following === true) { ?>
+            <span class="followed">#{_u.i18n("comm_f_following")}</span>
+            <?js } ?>
+          <?js } ?>
+          <?js } else if (support_blocking) { ?>
+          <a class="follow showblockingBtn" href="" 
+            title='#{_u.i18n("showblocking_title")}'>#{_u.i18n("showblocking")}</a>
+          <?js } ?>
+          </div>
+          <p>
+            <img class="small_icon sicon_gender_#{user.gender}" src="/images/transparent.gif" 
+              title="<?js if (user.gender === 'm'){ ?> #{_u.i18n('comm_man')} <?js } else if (user.gender === 'f') { ?> #{_u.i18n('comm_female')} <?js }else{ ?> #{_u.i18n('comm_gender_unknow')} <?js } ?>" />
+            <?js if (user.province) { ?>
+              #{provinces[user.province] ? provinces[user.province].name : user.province}, 
+              #{provinces[user.province] ? provinces[user.province]["citys"][user.city] : user.city}
+            <?js } ?>
+          </p>
+          <p>#{_u.i18n("comm_follow")}: 
+            <span><a class="showFollowersBtn" href="" data-type="friends" data-name="#{user.name}"
+              data-screen_name="#{user.screen_name}" data-uid="#{user.id}">#{user.friends_count == undefined ? _u.i18n("comm_view"): user.friends_count}</a></span>
+          &nbsp;&nbsp;#{_u.i18n("comm_fans")}: 
+            <span><a class="showFollowersBtn" href="" data-type="followers" data-name="#{user.name}"
+              data-screen_name="#{user.screen_name}" data-uid="#{user.id}">#{user.followers_count == undefined ? _u.i18n("comm_view"): user.followers_count}</a></span>
+          &nbsp;&nbsp;#{_u.i18n("comm_tweet")}: 
+          <span><a href="" class="getUserTimelineBtn" data-screen_name="#{user.screen_name}" data-id="#{user.id}">#{user.statuses_count == undefined ? _u.i18n("comm_view"): user.statuses_count}</a></span>
+
+          <?js if (user.bi_followers_count !== undefined) { ?>
+          &nbsp;&nbsp;#{_u.i18n("comm_bi_follower")}: <span>#{user.bi_followers_count}</span>
+          <?js } ?>
+
+          <?js if (user.favourites_count != undefined) { ?>
+          &nbsp;&nbsp;#{_u.i18n("comm_favourite")}: <span>#{user.favourites_count}</span>
+          <?js } ?>
+          </p>
+          <?js if (user.url && user.url != 'http://1') { ?>
+          <p>#{_u.i18n("comm_blog")}: <a href="#{user.url}">#{user.url}</a></p>
+          <?js } ?>
+        </div>
+        <div class="des">
+        <?js if (user.verified_reason) { ?>
+        #{_u.i18n("comm_verified_reason")}：#{user.verified_reason}<br/>
+        <?js } ?>
+        <?js if (user.email) { ?>
+        #{_u.i18n("comm_email")}: <a href="mailto:${user.email}">${user.email}</a><br/>
+        <?js } ?>
+        <?js if (user.homepage) { ?>
+        #{_u.i18n("comm_homepage")}: <a href="${user.homepage}">${user.homepage}</a><br/>
+        <?js } ?>
+        <?js if (user.birthday) { ?>
+        #{_u.i18n("comm_birthday")}: ${user.birthday}<br/>
+        <?js } ?>
+        <?js if (user.description) { ?>
+        #{_u.i18n("comm_description")}: ${user.description}<br/>
+        <?js } ?>
+        <?js if (user.jobs && user.jobs.length > 0) { ?>
+        #{_u.i18n("comm_jobs")}: ${user.jobs.join(', ')}<br/>
+        <?js } ?>
+        </div>
+        <?js if (user.tags) { ?>
+          <div class="tags">#{_u.i18n("comm_tags")}: 
+            <?js for(var i=0;i<user.tags.length;i++){ var tag = user.tags[i]; ?>
+            <a target="_blank" href="#{tag.url}">${tag.name}</a>
+            <?js } ?>
+          </div>
+        <?js } ?>
+      </div>
+    </textarea>
+    <!-- 粉丝模板 -->
+    <textarea id="tp_fans">
+      <div class="fans">
+        <div class="user_head"><img src="#{user.profile_image_url}" /></div>
+        <div class="user_info" did="#{user.id}">
+          <div class="userName">
+            <a href="" class="getUserTimelineBtn" data-screen_name="#{user.screen_name}" data-id="#{user.id}" 
+              rhref="#{user.t_url}">#{user.screen_name}<?js if(user.verified){ ?><img 
+              title="#{_u.i18n('comm_verified')}" 
+              src="/images/verified#{user.verified_type && user.verified_type > 0 ? '_blue.png' : '.gif'}" /><?js } ?></a>
+            <?js if (show_fullname) { ?>
+            <span class="fullname">#{user.name}</span>
+            <?js } ?>
+            <a class="follow replytweet" href=""
+              data-screen_name="#{user.screen_name}" data-uid="#{user.id}">@</a>
+            <a class="follow doNewMessageBtn" href="" 
+              data-screen_name="#{user.screen_name}" data-uid="#{user.id}">#{_u.i18n("abb_direct_message")}</a>
+          <?js if (support_blocking) { ?>
+            <a class="follow destroyBlockingBtn" href="" title='#{_u.i18n("destroy_blocking_title")}' 
+               style="#{user.blocking ? '' : 'display:none'}"
+               data-uid="#{user.id}">#{_u.i18n("destroy_blocking")}</a>
+            <a class="follow createBlockingBtn" href="" title='#{_u.i18n("create_blocking_title")}' 
+               style="#{user.blocking ? 'display:none' : ''}"
+               data-uid="#{user.id}">#{_u.i18n("create_blocking")}</a>
+          <?js } ?>
+
+          <?js if (tType !== 'friends' && user.following === true && !user.followed_by) { ?>
+          <span class="followed yourfans">#{_u.i18n("comm_f_following")}</span>
+          <?js } ?>
+
+          <?js if (support_follow) { ?>
+            <?js if (user.unfollow && user.followed_by !== true) { ?>
+              <a class="follow follow_button_destroy" style="display:none;" href="" 
+                data-uid="#{user.id}" data-screen_name="#{user.screen_name}">#{_u.i18n("comm_f_destroy")}</a>
+              <a class="follow follow_button_create" href="" 
+                data-uid="#{user.id}" data-screen_name="#{user.screen_name}"><span class="plus">+</span>#{_u.i18n("comm_f_create")}</a>
+            <?js } else { ?>
+              <a class="follow follow_button_destroy" 
+                <?js if (user.followed_by !== true && tType !== 'friends') { ?>style="display:none;"<?js } ?> href="" 
+                data-uid="#{user.id}" data-screen_name="#{user.screen_name}">#{_u.i18n("comm_f_destroy")}</a>
+              <a class="follow follow_button_create" 
+                <?js if (user.followed_by === true || tType === 'friends') { ?>style="display:none;"<?js } ?> href="" 
+                data-uid="#{user.id}" data-screen_name="#{user.screen_name}"><span class="plus">+</span>#{_u.i18n("comm_f_create")}</a>
+              <?js if ((user.followed_by === true || tType === 'friends') && user.following === true) { ?>
+                <span class="followed">
+                #{_u.i18n("comm_f_followed_by_and_following")}
+                </span>
+              <?js } ?>
+            <?js } ?>
+          <?js } ?> 
+          </div>
+          <p>
+            <img class="small_icon sicon_gender_#{user.gender}" src="/images/transparent.gif" 
+              title="<?js if (user.gender == 'm'){ ?> #{_u.i18n('comm_man')} <?js } else if (user.gender === 'f'){ ?> #{_u.i18n('comm_female')} <?js } else { ?> #{_u.i18n('comm_gender_unknow')} <?js } ?>" />
+            <?js if (user.province) { ?>
+              #{provinces[user.province] ? provinces[user.province].name : user.province}, 
+              #{provinces[user.province] ? provinces[user.province].citys[user.city] : user.city}
+            <?js } else if (user.location) { ?>
+              #{user.location}
+             <?js } ?>
+          </p>
+          <p>#{_u.i18n("comm_follow")}: 
+            <span><a class="showFollowersBtn" href="" data-type="friends" data-name="#{user.name}"
+              data-screen_name="#{user.screen_name}" data-uid="#{user.id}">#{user.friends_count == undefined ? _u.i18n("comm_view"): user.friends_count}</a>
+            </span>
+             &nbsp;&nbsp;#{_u.i18n("comm_fans")}: 
+            <span><a class="showFollowersBtn" href="" data-type="followers" data-name="#{user.name}"
+              data-screen_name="#{user.screen_name}" data-uid="#{user.id}">#{user.followers_count == undefined ? _u.i18n("comm_view"): user.followers_count}</a></span>
+             &nbsp;&nbsp;#{_u.i18n("comm_tweet")}: 
+             <span><a href="" class="getUserTimelineBtn" data-screen_name="#{user.screen_name}" data-id="#{user.id}">#{user.statuses_count == undefined ? _u.i18n("comm_view"): user.statuses_count}</a></span>
+            <?js if (user.bi_followers_count != undefined) { ?>
+            &nbsp;&nbsp;#{_u.i18n("comm_bi_follower")}: <span>#{user.bi_followers_count}</span>
+            <?js } ?>
+            <?js if (user.favourites_count != undefined) { ?>
+            &nbsp;&nbsp;#{_u.i18n("comm_favourite")}: <span>#{user.favourites_count}</span>
+            <?js } ?>
+          </p>
+          <?js if (user.url && user.url !== 'http://1') { ?>
+          <p>#{_u.i18n("comm_blog")}：<a href="#{user.url}">#{user.url}</a></p>
+          <?js } ?>
+        </div>
+        <div class="des">
+        <?js if (user.verified_reason) { ?>
+        #{_u.i18n("comm_verified_reason")}：#{user.verified_reason}<br/>
+        <?js } ?>
+        <?js if (user.email) { ?>
+        #{_u.i18n("comm_email")}: <a href="mailto:${user.email}">${user.email}</a><br/>
+        <?js } ?>
+        <?js if (user.homepage) { ?>
+        #{_u.i18n("comm_homepage")}: <a href="${user.homepage}">${user.homepage}</a><br/>
+        <?js } ?>
+        <?js if (user.birthday) { ?>
+        #{_u.i18n("comm_birthday")}: ${user.birthday}<br/>
+        <?js } ?>
+        <?js if (user.description) { ?>
+        #{_u.i18n("comm_description")}: ${user.description}<br/>
+        <?js } ?>
+        <?js if (user.jobs && user.jobs.length > 0) { ?>
+        #{_u.i18n("comm_jobs")}: ${user.jobs.join(', ')}<br/>
+        <?js } ?>
+        </div>
+        <?js if (user.tags) { ?>
+          <div class="tags">#{_u.i18n("comm_tags")}: 
+            <?js for (var i=0;i<user.tags.length;i++){ var tag = user.tags[i]; ?>
+            <a target="_blank" href="http://t.qq.com/search/tag.php?k=#{tag.name}">#{tag.name}</a>
+            <?js } ?>
+          </div>
+        <?js } ?>
+        <?js if (user.status && user.status.text) { ?>
+        <br/>
+        <div class="recent_tweet">#{_u.i18n("comm_recent_tweet")}: 
+          ${user.status.text}
+          |
+          <?js if (user.status.t_url) { ?>
+          <a href="#{user.status.t_url}" target="_blank">#{new Date(user.status.created_at).format("yyyy-MM-dd hh:mm:ss")}</a>
+          <?js } else { ?>
+          #{new Date(user.status.created_at).format("yyyy-MM-dd hh:mm:ss")}
+          <?js } ?>
+          #{_u.i18n('comm_post_by')} #{user.status.source || _u.i18n("comm_web_site")}
+        </div>
+        <?js } ?>
+      </div>
+    </textarea>
+  </div>
+
+  <script src="/scripts/tpl.js"></script>
+  <!--<script src="/scripts/ga.js"></script>-->
+ </body>
+</html>

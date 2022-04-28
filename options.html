@@ -1,0 +1,617 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>FaWave设置 - FaWave(发微) - 多微博插件</title>
+    <link rel="stylesheet" type="text/css" href="/css/options.css" />
+    <script src="/scripts/lib/jquery.min.js"></script>
+    <script src="/scripts/lib/jquery.dragsort-0.4.min.js"></script>
+    <script src="/scripts/lib/Base64.js"></script>
+    <script src="/scripts/i18n.js"></script>
+    <script src="/scripts/emotional.js"></script>
+    <script src="/scripts/utili.js"></script>
+    <script src="/scripts/lib/sha1.js"></script>
+    <script src="/scripts/lib/jssha256.js"></script>
+    <script src="/scripts/lib/md5.js"></script>
+    <script src="/scripts/lib/oauth.js"></script>
+    <script src="/scripts/apis.js"></script>
+    <script src="/scripts/options.js"></script>
+</head>
+
+<body>
+    <div>
+        <div id="header">
+            <div class="logo">
+                <h1><span id="extName"></span></h1>
+                <!--
+			<span style="margin-right: 150px;color:green;font-size:18px; font-weight:bold;float:right;">
+				应用推荐： <a href="http://timgs.sinaapp.com/" target="_blank">微博图墙</a>
+			</span> -->
+            </div>
+            <!-- <div class="thanks">
+                <div class="t"><span id="sett_msg_donate"></span> &nbsp;&nbsp;[
+                    <a id="all_donate_users_link" href="http://fawave.net4team.net/donaters" target="_blank">完整用户列表</a>]
+                </div>
+                <div id="donateUsersWrap">
+                    <ul id="donateUsers">
+                    </ul>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="other">
+        <ul id="navigation">
+            <li class="selected" target_id="#common_set">
+                <a href="javascript:"><span id="sett_TabName_common_set"></span></a>
+            </li>
+            <li class="" target_id="#appearance_set">
+                <a href="javascript:"><span id="sett_TabName_appearance_set"></span></a>
+            </li>
+            <li class="" target_id="#user_set" hide_save_btn="1">
+                <a id="tab_user_set" href="javascript:"><span id="sett_TabName_user_set"></span></a>
+            </li>
+            <li class="" target_id="#advanced_set">
+                <a href="javascript:"><span id="sett_TabName_advanced_set"></span></a>
+            </li>
+            <li class="" target_id="#about_me" hide_save_btn="1">
+                <a href="javascript:"><span id="sett_TabName_about"></span></a>
+            </li>
+            <li class="">
+                <a class="ignore" href="https://chrome.google.com/webstore/detail/fawave/elbkcajfelcihnbipppmnodnfahbhbad/support" target="_blank">Help & FAQ</a>
+            </li>
+            <li class="shadow"></li>
+        </ul>
+        <!-- 用户设置 START -->
+        <div id="user_set" class="set_wrap" style="display:none;">
+            <div class="alert" id="needRefresh" style="display:none;">
+                你看到这个是因为你的账户信息需要刷新FaWave才能继续使用，请点击“更新用户信息”进行刷新用户信息。
+            </div>
+            <div>
+                <button class="button_white button_small" id="show-new-account"><img src="images/add.png" /><span id="sett_btn_add_new_account"></span></button>
+                <button class="button_white button_small" id="refresh-account"><img src="images/refresh.png" /><span id="sett_btn_update_accounts"></span></button>
+                <span class="jTip" jTitle="" jWidth="320">?
+				<span class="c"><span id="sett_jTip_update_accounts"></span></span>
+                </span>
+            </div>
+            <div id="edit-account-info" style="display:none;">
+                <h3></h3>
+                <label class="title">当前编辑用户：</label><span class="ainfo"></span>
+            </div>
+            <div id="new-account" style="display:none;">
+                <ul>
+                    <span id="sett_tip_add_account"></span>
+                    <li>
+                        <label for="account-blogType"><span id="sett_des_account_blog_type"></span></label>
+                        <select id="account-blogType"></select>
+                        <img id="account-blogType-img" src="images/blogs/tsina_16.png" />
+                    </li>
+                    <li class="account-appkey" style="display:none;">
+                        <label for="account-appkey"><span id="sett_des_account_appkey"></span></label>
+                        <select id="account-appkey"></select>
+                        <input id="account-appkey-diy" type="checkbox" />
+                        <label for="account-appkey-diy"><span id="sett_des_account_appkey_diy"></span></label>
+                        <label for="account-appkey-diy-key"><span id="sett_des_account_appkey"></span></label>
+                        <input id="account-appkey-diy-key" value="" />
+                        <label for="account-appkey-diy-secret"><span id="sett_des_account_appkey_secret"></span></label>
+                        <input id="account-appkey-diy-secret" value="" />
+                    </li>
+                    <li class="account-proxy">
+                        <label for="account-proxy-api"><span id="sett_des_account_proxy_api"></span></label>
+                        <input type="text" id="account-proxy-api" style="width: 400px" />
+                        <span class="jTip" jTitle="" jWidth="310">?
+						<span class="c"><span id="sett_jTip_account_proxy_api"></span></span>
+                        </span>
+                    </li>
+                    <li class="account-proxy-key">
+                        <label for="account-proxy-api-key"><span id="sett_des_account_proxy_api_key"></span></label>
+                        <input type="text" id="account-proxy-api-key" style="width: 400px" />
+                        <span class="jTip" jTitle="" jWidth="310">?
+						<span class="c"><span id="sett_jTip_account_proxy_api_key"></span></span>
+                        </span>
+                    </li>
+                    <li class="account-api-secret">
+                        <label for="account-custom-secret"><span id="sett_des_account_api_secret"></span></label>
+                        <input type="text" id="account-custom-secret" style="width: 400px" />
+                        <span class="jTip" jTitle="" jWidth="310">?
+						<span class="c"><span id="sett_jTip_account_custom_secret"></span></span>
+                        </span>
+                    </li>
+                    <li>
+                        <label for="account-authType"><span id="sett_des_account_auth_type"></span></label>
+                        <select id="account-authType">
+					</select>
+                        <span class="jTip" jTitle="" jWidth="310">?
+						<span class="c"><span id="sett_jTip_account_auth_type"></span></span>
+                        </span>
+                    </li>
+                    <li class="account-oauth">
+                        <label for="account-pin"><span id="sett_des_account_pin"></span></label>
+                        <input type="text" id="account-pin" />
+                        <input type="hidden" id="account-request-token-key" />
+                        <input type="hidden" id="account-request-token-secret" />
+                        <button class="button_green button_small" id="get-account-pin">
+						<span id="sett_btn_get_account_pin"></span>
+					</button>
+                    </li>
+                    <li class="account-baseauth">
+                        <label for="account-name"><span id="sett_des_account_name"></span></label>
+                        <input type="text" id="account-name" />
+                        <input type="hidden" id="edit-account-key" />
+                    </li>
+                    <li class="account-baseauth">
+                        <label for="account-pwd"><span id="sett_des_account_password"></span></label>
+                        <input type="password" id="account-pwd" />
+                    </li>
+                    <li>
+                        <button class="button_green button_small" id="save-account">
+						<span id="sett_btn_get_account_save"></span>
+					</button>
+                        <button class="button_white button_small" id="cancel-save-account">
+						<span id="sett_btn_get_account_cancel"></span>
+					</button>
+                    </li>
+                </ul>
+            </div>
+            <h3>
+                <span id="sett_title_account_manage"></span>
+                <span class="jTip" jTitle="" jWidth="320">?
+				<span class="c">
+					<span id="sett_jTip_manage_accounts"></span>
+                </span>
+                </span>
+            </h3>
+            <ul id="dnd-account-list"></ul>
+        </div>
+        <!-- 用户设置END -->
+        <!-- 基本设置 -->
+        <table id="common_set" class="set_wrap">
+            <tr>
+                <th>
+                    <span id="sett_itemName_g_refresh_time"></span>
+                </th>
+                <td>
+                    <span id="gRefreshTimeWrap">
+					<span id="comm_TabName_friends_timeline"></span>:
+                    <input type="text" id="gRefreshTime_friends_timeline" class="inpRefTime" /><span id="comm_second"></span>,
+                    <span id="comm_TabName_mentions"></span>:
+                    <input type="text" id="gRefreshTime_mentions" class="inpRefTime" /><span id="comm_second"></span>,
+                    <span id="comm_TabName_comments_timeline"></span>:
+                    <input type="text" id="gRefreshTime_comments_timeline" class="inpRefTime" /><span id="comm_second"></span>,
+                    <span id="comm_TabName_direct_messages"></span>:
+                    <input type="text" id="gRefreshTime_direct_messages" class="inpRefTime" /><span id="comm_second"></span>
+                    </span>
+                    <span class="jTip" jTitle="间隔越短越好吗？:　" jWidth="310">?
+					<span class="c"><span id="sett_jTip_g_refresh_time"></span></span>
+                    </span>
+                    &nbsp;
+                    <a href="api_rate_limit.html" target="_blank"><span id="comm_show_rate_limit_stat"></span></a>
+                    <br/>
+                    <span id="sett_des_g_refresh_time_hits"></span>
+                </td>
+            </tr>
+            <tr id="set_badge_wrap">
+                <th>
+                    <span id="sett_itemName_set_badge"></span>
+                </th>
+                <td>
+                    <input type="checkbox" id="set_badge_friends_timeline" value="1" />
+                    <label for="set_badge_friends_timeline"><span id="comm_TabName_friends_timeline"></span></label>
+                    <input type="checkbox" id="set_badge_mentions" value="1" />
+                    <label for="set_badge_mentions"><span id="comm_TabName_mentions"></span></label>
+                    <input type="checkbox" id="set_badge_comments_timeline" value="1" />
+                    <label for="set_badge_comments_timeline"><span id="comm_TabName_comments_timeline"></span></label>
+                    <input type="checkbox" id="set_badge_direct_messages" value="1" />
+                    <label for="set_badge_direct_messages"><span id="comm_TabName_direct_messages"></span></label>
+                    <span class="jTip" jTitle="">?
+					<span class="c"><span id="sett_jTip_set_badge"></span></span>
+                    </span>
+                </td>
+            </tr>
+            <tr id="set_show_in_page_wrap">
+                <th>
+                    <label class="title"><span id="sett_itemName_show_in_page"></span></label>
+                </th>
+                <td>
+                    <input type="checkbox" id="set_show_in_page_friends_timeline" />
+                    <label for="set_show_in_page_friends_timeline"><span id="comm_TabName_friends_timeline"></span></label>
+                    <input type="checkbox" id="set_show_in_page_mentions" />
+                    <label for="set_show_in_page_mentions"><span id="comm_TabName_mentions"></span></label>
+                    <input type="checkbox" id="set_show_in_page_comments_timeline" />
+                    <label for="set_show_in_page_comments_timeline"><span id="comm_TabName_comments_timeline"></span></label>
+                    <input type="checkbox" id="set_show_in_page_direct_messages" />
+                    <label for="set_show_in_page_direct_messages"><span id="comm_TabName_direct_messages"></span></label>
+                    <span class="jTip" jTitle="">?
+					<span class="c"><span id="sett_jTip_show_in_page"></span></span>
+                    </span>
+                </td>
+            </tr>
+            <tr id="set_sound_alert_wrap">
+                <th>
+                    <label class="title"><span id="sett_itemName_sound_alert"></span></label>
+                </th>
+                <td>
+                    <input type="checkbox" id="sound_alert_friends_timeline" />
+                    <label for="sound_alert_friends_timeline"><span id="comm_TabName_friends_timeline"></span></label>
+                    <input type="checkbox" id="sound_alert_mentions" />
+                    <label for="sound_alert_mentions"><span id="comm_TabName_mentions"></span></label>
+                    <input type="checkbox" id="sound_alert_comments_timeline" />
+                    <label for="sound_alert_comments_timeline"><span id="comm_TabName_comments_timeline"></span></label>
+                    <input type="checkbox" id="sound_alert_direct_messages" />
+                    <label for="sound_alert_direct_messages"><span id="comm_TabName_direct_messages"></span></label>
+                    <span class="jTip" jTitle="" jWidth="300">?
+					<span class="c"><span id="sett_jTip_sound_alert"></span></span>
+                    </span>
+                    <label for="inpSoundFile"><span id="sett_itemName_sound_file"></span></label>
+                    <input type="text" id="inpSoundFile" />
+                </td>
+            </tr>
+            <tr id="set_destop_alert_wrap">
+                <th>
+                    <label class="title"><span id="sett_itemName_destop_alert"></span></label>
+                </th>
+                <td>
+                    <input type="checkbox" id="destop_alert_friends_timeline" />
+                    <label for="destop_alert_friends_timeline"><span id="comm_TabName_friends_timeline"></span></label>
+                    <input type="checkbox" id="destop_alert_mentions" />
+                    <label for="destop_alert_mentions"><span id="comm_TabName_mentions"></span></label>
+                    <input type="checkbox" id="destop_alert_comments_timeline" />
+                    <label for="destop_alert_comments_timeline"><span id="comm_TabName_comments_timeline"></span></label>
+                    <input type="checkbox" id="destop_alert_direct_messages" />
+                    <label for="destop_alert_direct_messages"><span id="comm_TabName_direct_messages"></span></label>
+                    <span class="jTip" jTitle="">?
+					<span class="c"><span id="sett_jTip_destop_alert"></span></span>
+                    </span>
+                    <label for="inpDesktopNotificationsTimeout"><span id="sett_itemName_destop_alert_timeout"></span></label>
+                    <input type="text" id="inpDesktopNotificationsTimeout" class="inpRefTime" />
+                    <span id="comm_second"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span id="sett_itemName_show_network_error"></span>
+                </th>
+                <td>
+                    <span>
+					<input type="checkbox" id="show_network_error" value="0" />
+				</span>
+                    <span class="jTip" jTitle="">?
+					<span class="c"><span id="sett_jTip_show_network_error"></span></span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span id="sett_itemName_sync_to_page"></span></th>
+                <td>
+                    <span>
+					<input type="checkbox" id="unread_sync_to_page" value="1" />
+					<label for="unread_sync_to_page"><span id="sett_itemDes_sync_to_page"></span></label>
+                    </span>
+                    <span class="jTip" jTitle="">?
+					<span class="c"><span id="sett_jTip_sync_to_page"></span></span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span id="sett_itemName_send_select"></span></th>
+                <td>
+                    <select id="send_accounts_default_select">
+					<option value="remember"><span id="sett_send_select_remember"></span></option>
+					<option value="current"><span id="sett_send_select_current"></span></option>
+					<option value="all"><span id="sett_send_select_all"></span></option>
+				</select>
+                    <span class="jTip" jTitle="" jWidth="330">?
+			    <span class="c"><span id="sett_jTip_send_select"></span></span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span id="sett_itemName_remember_view_status"></span></th>
+                <td>
+                    <span>
+          <input type="checkbox" id="remember_view_status_cb" checked="checked" />
+        </span>
+                    <span class="jTip" jTitle="">?
+          <span class="c"><span id="sett_jTip_remember_view_status"></span></span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><label class="title" for="enable_contextmenu"><span id="sett_itemName_context_menu"></span></label></th>
+                <td>
+                    <input type="checkbox" id="enable_contextmenu" value="1" />
+                    <span class="jTip" jTitle="" jWidth="330">?
+					<span class="c"><span id="sett_jTip_context_menu"></span></span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <p>
+                    <th><span id="sett_itemName_quick_send_key"></span></th>
+                    <td>
+                        <input type="hidden" id="set_quick_send_key" value="" />
+                        <input type="text" id="set_quick_send_key_inp" value="" />
+                        <span class="jTip" jTitle="" jWidth="330">?
+						<span class="c"><span id="sett_jTip_quick_send_key"></span></span>
+                        </span>
+                        <span id="set_quick_send_key_tip"><span id="sett_des_quick_send_key"></span></span>
+                    </td>
+                </p>
+            </tr>
+            <tr>
+                <th>
+                    <span id="sett_itemName_translate_target"></span>
+                </th>
+                <td>
+                    <select id="translate_target"></select>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <!--<label>本地缓存信息数：</label>
+				<span>
+					<select id="selLocalStorageNum">
+						<option value="50">50</option>
+						<option value="100">100</option>
+						<option value="200" selected="true">200</option>
+						<option value="300">300</option>
+					</select>
+				</span>-->
+                <td>
+                    <div>
+                        <button id="cleanLocalStorage" class="button_white"><span id="sett_btn_clean_local_storage"></span></button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <!-- 外观设置 -->
+        <ul id="appearance_set" class="set_wrap" style="display:none;">
+            <li>
+                <label class="title"><span id="sett_itemName_default_language"></span></label>
+                <span>
+          <select id="selDefaultLanguage">
+            <option value="">浏览器默认语言</option>
+            <option value="zh_CN">简体中文</option>
+            <option value="zh_TW">繁体中文</option>
+            <option value="en">English</option>
+          </select>
+	      </span>
+            </li>
+            <li>
+                <div>
+                    <label class="title"><span id="sett_itemName_font"></span></label>
+                    <span>
+					<select id="selFont">
+						<option value="Arial">Arial</option>
+						<option value="Tahoma">Tahoma</option>
+						<option value="Lucida Console">Lucida Console</option>
+						<option value="sans-serif">sans-serif</option>
+						<option value="monaco">monaco</option>
+						<option value="微软雅黑">微软雅黑</option>
+						<option value="宋体">宋体</option>
+					</select>
+				</span>
+                    <span><input id="selFontText" value="" /></span>
+                    <span>
+					<select id="selFontSize">
+						<option value="11">11px</option>
+						<option value="12">12px</option>
+						<option value="13">13px</option>
+						<option value="14">14px</option>
+						<option value="15">15px</option>
+						<option value="16">16px</option>
+					</select>
+				</span>
+                </div>
+            </li>
+            <li>
+                <p>
+                    <label class="title"><span id="sett_itemName_WH"></span></label>
+                    <span>
+					<label for="set_main_height"><span id="comm_height"></span>:</label>
+                    <input type="text" style="width:50px;" id="set_main_height" value="520" />
+                    <span class="jTip" jTitle="">?
+						<span class="c"><span id="sett_itemName_WH_height_limit"></span></span>
+                    </span>
+                    <label for="set_main_width"><span id="comm_width"></span>:</label>
+                    <input type="text" style="width:50px;" id="set_main_width" value="480" />
+                    <span class="jTip" jTitle="">?
+						<span class="c"><span id="sett_jTip_WH_width_limit"></span></span>
+                    </span>
+                    </span>
+            </li>
+            <li>
+                <label class="title"><span id="sett_itemName_theme"></span></label>
+                <span>
+					<select id="selTheme">
+						<option value="pip_io">Pip.io</option>
+						<option value="default">Bubble</option>
+						<option value="simple">Simple</option>
+						<option value="work">Work</option>
+					</select>
+				</span>
+                <div><img id="themePreview" src="/themes/default/theme.png" /></div>
+                </p>
+            </li>
+        </ul>
+        <!-- 高级设置 -->
+        <table id="advanced_set" class="set_wrap" style="display:none;">
+            <tr>
+                <th><label class="title" for="isGeoEnabled"><span id="sett_itemName_geo"></span></label></th>
+                <td>
+                    <span>
+			    <input type="checkbox" id="isGeoEnabledUseIP" />
+          <label for="isGeoEnabledUseIP"><span id="sett_itemName_use_ip_geo"></span></label>
+
+                    <input type="checkbox" id="isGeoEnabled" />
+                    <label for="isGeoEnabled"><span id="sett_itemName_use_browser_geo"></span></label>
+
+                    <a id="btnShowMyGeo" style="display:none;" href="javascript:" onclick="showMyGeo()">
+                        <span id="sett_show_my_geo"></span>
+                    </a>
+                    </span>
+                    <span class="jTip" jTitle="" jWidth="320">?
+					<span class="c"><span id="sett_jTip_geo"></span></span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span id="sett_itemName_smooth_scroller"></span></th>
+                <td>
+                    <input type="checkbox" id="isSmoothScroller" />
+                    <label for="isSmoothScroller"><span id="comm_enabled"></span></label> &nbsp;
+                    <label for="tween_type"><span id="sett_smooth_scroller_tween"></span>:</label>
+                    <select id="tween_type"></select> &nbsp;
+                    <label for="ease_type"><span id="sett_smooth_scroller_ease"></span>:</label>
+                    <select id="ease_type">
+					<option value="easeIn">easeIn</option>
+					<option value="easeOut">easeOut</option>
+				</select>
+                    <span id="tween_demo"><span></span></span>
+                </td>
+            </tr>
+            <tr>
+                <th><span id="sett_itemName_shared_template"></span></th>
+                <td>
+                    <input type="text" id="tp_looking" value="{{title}} {{url}} " style="width:200px;" />
+                    <span class="jTip" jTitle="" jWidth="320">?
+					<span class="c"><span id="sett_jTip_shared_template"></span></span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th><span id="sett_itemName_auto_short_url"></span></th>
+                <td>
+                    <input type="checkbox" name="autoShortUrl" value="1" checked="checked" id="autoShortUrl" />
+                    <label for="autoShortUrl"><span id="sett_des_auto_short_url"></span>, </label>
+                    <label for="autoShortUrlCount"><span id="sett_des_auto_short_url_words"></span>:</label>
+                    <input type="text" id="autoShortUrlCount" style="width: 40px;" value="15" />
+                    <label><span id="sett_des_shorten_url_service"></span>:</label>
+                    <select id="shorten_url_service"></select>
+                </td>
+            </tr>
+            <tr style="display:none;">
+                <th><span id="sett_itemName_enable_image_service"></span></th>
+                <td>
+                    <label><span id="sett_des_image_service_words"></span></label>
+                    <label><span id="sett_des_image_service"></span>:</label>
+                    <select id="image_service"></select>
+                </td>
+            </tr>
+            <tr>
+                <th><a href="http://www.instapaper.com/" target="_blank"><span id="sett_itemName_instapaper"></span></a></th>
+                <td>
+                    <span class="jTip" jTitle="" jWidth="400">
+						?<span class="c"><span id="sett_jTip_instapaper"></span></span>
+                    </span>
+                    <label for="instapaper_username"><span id="sett_des_account_name"></span></label>
+                    <input type="text" id="instapaper_username" />
+                    <label for="instapaper_password"><span id="sett_des_account_password"></span></label>
+                    <input type="password" id="instapaper_password" />
+                    <button class="button_green button_small" id="set_instapaper_account_btn">
+        	<img src="/images/user_edit.png" /><span id="comm_setting"></span>
+        </button>
+                    <button class="button_white button_small" style="display:none;" id="delete_instapaper_account_btn">
+        	<img src="/images/delete.png" /><span id="comm_del_user"></span>
+        </button>
+                </td>
+            </tr>
+            <tr>
+                <th><a href="http://readitlaterlist.com/" target="_blank"><span id="sett_itemName_readitlater"></span></a></th>
+                <td>
+                    <span class="jTip" jTitle="" jWidth="400">?
+            <span class="c"><span id="sett_jTip_readitlater"></span></span>
+                    </span>
+                    <label for="readitlater_username"><span id="sett_des_account_name"></span></label>
+                    <input type="text" id="readitlater_username" />
+                    <label for="readitlater_password"><span id="sett_des_account_password"></span></label>
+                    <input type="password" id="readitlater_password" />
+                    <button class="button_green button_small" id="set_readitlater_account_btn">
+          	<img src="/images/user_edit.png" /><span id="comm_setting"></span>
+          </button>
+                    <button class="button_white button_small" style="display:none;" id="delete_readitlater_account_btn">
+          	<img src="/images/delete.png" /><span id="comm_del_user"></span></button>
+                </td>
+            </tr>
+            <tr style="display:none;">
+                <th><a href="http://vdisk.weibo.com/" target="_blank"><span id="sett_itemName_vdisk"></span></a></th>
+                <td>
+                    <span class="jTip" jTitle="" jWidth="400">?
+            <span class="c"><span id="sett_jTip_vdisk"></span></span>
+                    </span>
+                    <label for="vdisk_username"><span id="sett_des_account_name"></span></label>
+                    <input type="text" id="vdisk_username" />
+                    <label for="vdisk_password"><span id="sett_des_account_password"></span></label>
+                    <input type="password" id="vdisk_password" />
+                    <input type="checkbox" id="vdisk_use_sinat" /><label>使用新浪微博帐号</label>
+                    <button class="button_green button_small" id="set_vdisk_account_btn">
+          	<img src="images/user_edit.png" /><span id="comm_setting"></span>
+          </button>
+                    <button class="button_white button_small" style="display:none;" id="delete_vdisk_account_btn">
+          	<img src="images/delete.png" /><span id="comm_del_user"></span>
+          </button>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    <br/>
+                    <button class="button_white button_small" id="showExportSettings"><span id="sett_export"></span></button>
+                    <button class="button_white button_small" id="showImportSettings"><span id="sett_import"></span></button>
+                </td>
+            </tr>
+        </table>
+        <!-- 关于与感谢 -->
+        <div id="about_me" class="set_wrap" style="display:none;">
+            <h3><span id="sett_title_author"></span>(Net4 Team)：</h3>
+            <div class="clearFix">
+                <span class="author clearFix">
+				<img src="http://tp4.sinaimg.cn/1644902943/50/1279883084/1"/>
+				Sina:<a target="_blank" href="http://t.sina.com.cn/qleelulu" >@QLeelulu</a>
+				|
+				Twitter:<a target="_blank" href="http://twitter.com/QLeelulu">@QLeelulu</a>
+				<br/>
+				Blog:<a target="_blank" href="http://qleelulu.cnblogs.com" >QLeelulu's Blog</a>
+			</span>
+                <span class="author clearFix">
+				<img src="http://tp1.sinaimg.cn/1640328892/50/1288939760/1"/>
+				Sina:<a target="_blank" href="http://t.sina.com.cn/imk2" >@Python发烧友</a>
+				|
+				Twitter:<a target="_blank" href="http://twitter.com/fengmk2" >@fengmk2</a>
+				<br/>
+				Blog:<a target="_blank" href="http://fengmk2.cnblogs.com/" >Python发烧友's Blog</a>
+			</span>
+            </div>
+            <br/><br/>
+            <h3><span id="sett_title_official"></span>：</h3>
+            <span class="author clearFix">
+			<a target="_blank" href="http://t.sina.com.cn/falang" title="FaWave@新浪微博" ><img src="images/blogs/tsina_16.png" /></a>
+			<a target="_blank" href="http://t.qq.com/fawave" title="FaWave@腾讯微博" ><img src="images/blogs/tqq_16.png" /></a>
+			<a target="_blank" href="http://t.sohu.com/fawave" title="FaWave@搜狐微博" ><img src="images/blogs/tsohu_16.png" /></a>
+			<a target="_blank" href="http://fanfou.com/fawave" title="FaWave@饭否" ><img src="images/blogs/fanfou_16.png" /></a>
+			<a target="_blank" href="http://leihou.com/fawave" title="FaWave@雷猴" ><img src="images/blogs/leihou_16.png" /></a>
+			<a target="_blank" href="http://twitter.com/fawave" title="FaWave@Twitter" ><img src="images/blogs/twitter_16.png" /></a>
+		</span>
+        </div>
+    </div>
+    <br>
+    <button id="save-all" class="button_blue" style="width:100px;height:40px;margin-left:50px;"><span id="sett_btn_save_all"></span></button>
+
+    <div id="msgInfoWarp"></div>
+
+    <div id="JT" style="visibility:hidden;">
+        <div id="JT_arrow_left"></div>
+        <div id="JT_close_left"></div>
+        <div id="JT_copy"></div>
+    </div>
+
+    <script src="/scripts/ga.js"></script>
+    <div class="footer">
+        2009 - 2016 &copy; <a href="http://fawave.whyun.com" target="_blank">FaWave</a> Corp All Rights Reserved
+        <a href="http://www.w3.org/html/logo/" target="_blank">
+            <img src="http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-css3-multimedia-semantics-storage.png" width="130" height="32" alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Multimedia, Semantics, and Offline &amp; Storage" title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Multimedia, Semantics, and Offline &amp; Storage"
+            />
+        </a>
+    </div>
+</body>
+
+</html>

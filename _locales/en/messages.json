@@ -1,0 +1,1356 @@
+{
+   "abb_all": {
+      "description": "",
+      "message": "All"
+   },
+   "abb_comment": {
+      "description": "",
+      "message": "Cm"
+   },
+   "abb_comments_mentions": {
+      "description": "",
+      "message": "@Cm"
+   },
+   "abb_comments_timeline": {
+      "description": "",
+      "message": "Cm"
+   },
+   "abb_delete": {
+      "description": "",
+      "message": "Del"
+   },
+   "abb_direct_message": {
+      "description": "",
+      "message": "Dm"
+   },
+   "abb_friends_timeline": {
+      "description": "",
+      "message": "New"
+   },
+   "abb_keep_send_data": {
+      "description": "",
+      "message": "Keep sent data"
+   },
+   "abb_like": {
+      "description": "",
+      "message": "Lk"
+   },
+   "abb_play": {
+      "description": "",
+      "message": "Play"
+   },
+   "abb_reply": {
+      "description": "",
+      "message": "Reply"
+   },
+   "abb_repost": {
+      "description": "",
+      "message": "Fw"
+   },
+   "abb_send_direct_message": {
+      "description": "",
+      "message": "Dm"
+   },
+   "abb_send_direct_message_to_user": {
+      "description": "",
+      "message": "Send message to"
+   },
+   "abb_show": {
+      "description": "",
+      "message": "View"
+   },
+   "btn_add_favorites_title": {
+      "description": "",
+      "message": "Add favorite"
+   },
+   "btn_alert_mode_title": {
+      "description": "",
+      "message": "Prompt mode. Click to switch to Non-disturbed mode"
+   },
+   "btn_auto_insert_title": {
+      "description": "",
+      "message": "Auto Insert mode. Click to switch to \"only show new message count\" mode."
+   },
+   "btn_comment_title": {
+      "description": "",
+      "message": "Add Comment"
+   },
+   "btn_del_comment_title": {
+      "description": "",
+      "message": "Remove Comment"
+   },
+   "btn_del_direct_message_title": {
+      "description": "",
+      "message": "Remove direct message"
+   },
+   "btn_del_favorites_title": {
+      "description": "",
+      "message": "Remove Favorite"
+   },
+   "btn_del_tweet_title": {
+      "description": "",
+      "message": "Remove microblogging"
+   },
+   "btn_direct_message_title": {
+      "description": "",
+      "message": "Send direct message"
+   },
+   "btn_dnd_mode_title": {
+      "description": "",
+      "message": "Non-disturbed mode. Click to switch to Prompt mode"
+   },
+   "btn_emotional_title": {
+      "description": "",
+      "message": "Add emotion"
+   },
+   "btn_geo_title": {
+      "description": "",
+      "message": "Click to view location information"
+   },
+   "btn_hide_comments": {
+      "description": "",
+      "message": "Hide comments"
+   },
+   "btn_hide_repost_timeline": {
+      "description": "",
+      "message": "Hide retweet timeline"
+   },
+   "btn_like_title": {
+      "description": "",
+      "message": "Like this tweet"
+   },
+   "btn_longtext_title": {
+      "description": "",
+      "message": "Send long tweet"
+   },
+   "btn_mention_title": {
+      "description": "",
+      "message": "Reply with @"
+   },
+   "btn_new_win_title": {
+      "description": "",
+      "message": "Pops up to new window"
+   },
+   "btn_next_page": {
+      "description": "",
+      "message": "Next》"
+   },
+   "btn_not_auto_insert_title": {
+      "description": "",
+      "message": "Only show new message count mode. Click to switch to Auto Insert mode."
+   },
+   "btn_old_rt_title": {
+      "description": "",
+      "message": "Retweet like old twitter"
+   },
+   "btn_pic_title": {
+      "description": "",
+      "message": "Upload picture"
+   },
+   "btn_prev_page": {
+      "description": "",
+      "message": "《Previous"
+   },
+   "btn_read_it_later_title": {
+      "description": "",
+      "message": "Read It Later"
+   },
+   "btn_read_later_title": {
+      "description": "",
+      "message": "Read Later"
+   },
+   "btn_refresh_title": {
+      "description": "",
+      "message": "Click to get the latest Tweet of the current user"
+   },
+   "btn_reply_comment_title": {
+      "description": "",
+      "message": "Reply Comment"
+   },
+   "btn_repost_title": {
+      "description": "",
+      "message": "Forward this tweet"
+   },
+   "btn_rt_title": {
+      "description": "",
+      "message": "Retweet"
+   },
+   "btn_rted_title": {
+      "description": "",
+      "message": "Successfully retweet"
+   },
+   "btn_search_title": {
+      "description": "",
+      "message": "Click to Search"
+   },
+   "btn_search_user_title": {
+      "description": "",
+      "message": "Click to Search User"
+   },
+   "btn_select_file_only_title": {
+      "description": "",
+      "message": "Click to select file, even drag and drop file here"
+   },
+   "btn_select_pic_title": {
+      "description": "",
+      "message": "Select a file or drop it here"
+   },
+   "btn_share_title": {
+      "description": "",
+      "message": "Share current page"
+   },
+   "btn_share_title_with_capture": {
+      "description": "",
+      "message": "Share current page and Capture"
+   },
+   "btn_show_comments_title": {
+      "description": "",
+      "message": "Click to view comments"
+   },
+   "btn_show_original_pic_title": {
+      "description": "",
+      "message": "Right click to open the original image"
+   },
+   "btn_show_source_status": {
+      "description": "",
+      "message": "Reply to $name$",
+      "placeholders": {
+         "name": {
+            "content": "$1",
+            "description": ""
+         }
+      }
+   },
+   "btn_show_user_title": {
+      "description": "",
+      "message": "Left Click to view Tweet, Right click to View home"
+   },
+   "btn_translate": {
+      "description": "",
+      "message": "Tr"
+   },
+   "btn_translate_title": {
+      "description": "",
+      "message": "Translate this tweet"
+   },
+   "comm_TabName_comments_mentions": {
+      "description": "",
+      "message": "@Coms"
+   },
+   "comm_TabName_comments_timeline": {
+      "description": "",
+      "message": "Coms"
+   },
+   "comm_TabName_direct_messages": {
+      "description": "",
+      "message": "DMs"
+   },
+   "comm_TabName_favorites": {
+      "description": "",
+      "message": "Favs"
+   },
+   "comm_TabName_followers": {
+      "description": "",
+      "message": "Fols"
+   },
+   "comm_TabName_friends_timeline": {
+      "description": "",
+      "message": "Home"
+   },
+   "comm_TabName_mentions": {
+      "description": "",
+      "message": "@Me"
+   },
+   "comm_TabName_user_timeline": {
+      "description": "",
+      "message": "Twes"
+   },
+   "comm_add": {
+      "description": "",
+      "message": "Add"
+   },
+   "comm_bi_follower": {
+      "description": "",
+      "message": "Follow Each"
+   },
+   "comm_birthday": {
+      "description": "",
+      "message": "Birthday"
+   },
+   "comm_blog": {
+      "description": "",
+      "message": "Blog"
+   },
+   "comm_cancel": {
+      "description": "",
+      "message": "Cancel"
+   },
+   "comm_clear": {
+      "description": "",
+      "message": "Clear"
+   },
+   "comm_close": {
+      "description": "",
+      "message": "Close"
+   },
+   "comm_comment_to_before": {
+      "description": "",
+      "message": "Comment"
+   },
+   "comm_could_not_tran": {
+      "description": "",
+      "message": "Translation is temporarily unavailable, "
+   },
+   "comm_counts_info": {
+      "description": "",
+      "message": "Fol {{friends_count}}, {{followers_count}} Fans, {{statuses_count}} Tweets"
+   },
+   "comm_de": {
+      "description": "",
+      "message": "'s "
+   },
+   "comm_del_user": {
+      "description": "",
+      "message": "Delete user"
+   },
+   "comm_description": {
+      "description": "",
+      "message": "Intro"
+   },
+   "comm_disabled": {
+      "description": "",
+      "message": "Disable"
+   },
+   "comm_dnd_tooltip": {
+      "description": "",
+      "message": "FaWave: Non-disturbed mode"
+   },
+   "comm_edit_longtext": {
+      "description": "",
+      "message": "Edit long tweet"
+   },
+   "comm_email": {
+      "description": "",
+      "message": "Email"
+   },
+   "comm_emotional": {
+      "description": "",
+      "message": "Emo"
+   },
+   "comm_enabled": {
+      "description": "",
+      "message": "Enable"
+   },
+   "comm_enter_image_url": {
+      "description": "",
+      "message": "Image URL"
+   },
+   "comm_error_return": {
+      "description": "",
+      "message": "Server returns an error result,the local resolution fails."
+   },
+   "comm_f_create": {
+      "description": "",
+      "message": "Follow"
+   },
+   "comm_f_destroy": {
+      "description": "",
+      "message": "UnFollow"
+   },
+   "comm_f_followed_by": {
+      "description": "",
+      "message": "Followed"
+   },
+   "comm_f_followed_by_and_following": {
+      "description": "",
+      "message": "Followed each other"
+   },
+   "comm_f_following": {
+      "description": "",
+      "message": "Your fans"
+   },
+   "comm_fail": {
+      "description": "",
+      "message": "Failure"
+   },
+   "comm_fans": {
+      "description": "",
+      "message": "Followers"
+   },
+   "comm_favourite": {
+      "description": "",
+      "message": "Favs"
+   },
+   "comm_female": {
+      "description": "",
+      "message": "Female"
+   },
+   "comm_follow": {
+      "description": "",
+      "message": "Following"
+   },
+   "comm_font_bold": {
+      "description": "",
+      "message": "Bold"
+   },
+   "comm_font_family": {
+      "description": "",
+      "message": "Family"
+   },
+   "comm_font_size": {
+      "description": "",
+      "message": "Font Size"
+   },
+   "comm_gender_unknow": {
+      "description": "",
+      "message": "Unknown Gender"
+   },
+   "comm_go_to_top": {
+      "description": "",
+      "message": "Back to top"
+   },
+   "comm_has": {
+      "description": "",
+      "message": "Already"
+   },
+   "comm_height": {
+      "description": "",
+      "message": "Height"
+   },
+   "comm_homepage": {
+      "description": "",
+      "message": "Home Page"
+   },
+   "comm_jobs": {
+      "description": "",
+      "message": "Jobs"
+   },
+   "comm_json_parse_error": {
+      "description": "",
+      "message": "Server returns an error result,the local JSON parse error."
+   },
+   "comm_longtext": {
+      "description": "",
+      "message": "LTweet"
+   },
+   "comm_man": {
+      "description": "",
+      "message": "Male"
+   },
+   "comm_mbleft_to_preview": {
+      "description": "",
+      "message": "Left click to preview"
+   },
+   "comm_mblog_type": {
+      "description": "",
+      "message": "Type Of Blog"
+   },
+   "comm_mbright_to_open": {
+      "description": "",
+      "message": "Right click to open"
+   },
+   "comm_mbright_to_open_pic": {
+      "description": "",
+      "message": "Right click to open the original image"
+   },
+   "comm_me": {
+      "description": "",
+      "message": "Me"
+   },
+   "comm_my": {
+      "description": "",
+      "message": "My "
+   },
+   "comm_new_tweet": {
+      "description": "",
+      "message": "Tweet"
+   },
+   "comm_no_api": {
+      "description": "",
+      "message": "Did not provide the API"
+   },
+   "comm_not_alert_this_page": {
+      "description": "",
+      "message": "This page no longer tips"
+   },
+   "comm_not_need_tran": {
+      "description": "",
+      "message": "No Translation"
+   },
+   "comm_oauth_name": {
+      "description": "",
+      "message": "oAuth(More secure)"
+   },
+   "comm_per_hour": {
+      "description": "",
+      "message": "Per hour"
+   },
+   "comm_pic": {
+      "description": "",
+      "message": "Pic"
+   },
+   "comm_player": {
+      "description": "",
+      "message": "Player"
+   },
+   "comm_popup_play": {
+      "description": "",
+      "message": "Play in Pop-up window"
+   },
+   "comm_post_by": {
+      "description": "",
+      "message": "via"
+   },
+   "comm_preview_longtext": {
+      "description": "",
+      "message": "Preview long tweet"
+   },
+   "comm_quick_send": {
+      "description": "",
+      "message": "Quick Send"
+   },
+   "comm_rate_limit": {
+      "description": "",
+      "message": "API access rate limit"
+   },
+   "comm_rate_limit_per_hour": {
+      "description": "",
+      "message": "Requests per hour limit"
+   },
+   "comm_recent_tweet": {
+      "description": "",
+      "message": "Recent Tweet"
+   },
+   "comm_refresh": {
+      "description": "",
+      "message": "Refresh"
+   },
+   "comm_refresh_user_auth": {
+      "description": "",
+      "message": "Reauthorization"
+   },
+   "comm_remainder": {
+      "description": "",
+      "message": "Residue"
+   },
+   "comm_reply": {
+      "description": "",
+      "message": "Reply"
+   },
+   "comm_repost": {
+      "description": "",
+      "message": "Repost"
+   },
+   "comm_repost_default": {
+      "description": "",
+      "message": "Forward."
+   },
+   "comm_repost_to_after": {
+      "description": "",
+      "message": "'s tweet"
+   },
+   "comm_repost_to_before": {
+      "description": "",
+      "message": "Fw"
+   },
+   "comm_request": {
+      "description": "",
+      "message": "Request"
+   },
+   "comm_reset_time": {
+      "description": "",
+      "message": "Reset time"
+   },
+   "comm_retweet_by_after": {
+      "description": "",
+      "message": "and more"
+   },
+   "comm_retweet_by_before": {
+      "description": "",
+      "message": "Fw by"
+   },
+   "comm_save": {
+      "description": "",
+      "message": "Save"
+   },
+   "comm_search": {
+      "description": "",
+      "message": "Search"
+   },
+   "comm_search_user": {
+      "description": "",
+      "message": "User"
+   },
+   "comm_second": {
+      "description": "",
+      "message": "Sec"
+   },
+   "comm_send": {
+      "description": "",
+      "message": "Tweet!"
+   },
+   "comm_send_only": {
+      "description": "",
+      "message": "Only For Send"
+   },
+   "comm_send_success_close_window": {
+      "description": "",
+      "message": "Auto close"
+   },
+   "comm_send_tip": {
+      "description": "",
+      "message": "ctrl + enter to send"
+   },
+   "comm_setting": {
+      "description": "",
+      "message": "Setting"
+   },
+   "comm_share_this_page": {
+      "description": "",
+      "message": "Share the current page"
+   },
+   "comm_share_this_page_and_capture": {
+      "description": "",
+      "message": "Share the current page and capture"
+   },
+   "comm_share_whit_fawave": {
+      "description": "",
+      "message": "Shared by FaWave"
+   },
+   "comm_show_comments": {
+      "description": "",
+      "message": "View comments"
+   },
+   "comm_show_original": {
+      "description": "",
+      "message": "View the original text"
+   },
+   "comm_show_original_pic": {
+      "description": "",
+      "message": "Original photo"
+   },
+   "comm_show_original_status": {
+      "description": "",
+      "message": "View the original message"
+   },
+   "comm_show_original_vedio": {
+      "description": "",
+      "message": "View the original video"
+   },
+   "comm_show_rate_limit_stat": {
+      "description": "",
+      "message": "View API rate limit state"
+   },
+   "comm_show_related_dialogue": {
+      "description": "",
+      "message": "View related dialogue"
+   },
+   "comm_show_repost_timeline": {
+      "description": "",
+      "message": "View retweet timeline"
+   },
+   "comm_success": {
+      "description": "",
+      "message": "Success"
+   },
+   "comm_tags": {
+      "description": "",
+      "message": "Tags"
+   },
+   "comm_total": {
+      "description": "",
+      "message": "Total"
+   },
+   "comm_tweet": {
+      "description": "",
+      "message": "Tweets"
+   },
+   "comm_url_shorten": {
+      "description": "",
+      "message": "Shorten the URL"
+   },
+   "comm_user": {
+      "description": "",
+      "message": "User"
+   },
+   "comm_verified": {
+      "description": "",
+      "message": "Certification user"
+   },
+   "comm_verified_reason": {
+      "description": "",
+      "message": "Certification"
+   },
+   "comm_view": {
+      "description": "",
+      "message": "View"
+   },
+   "comm_web_site": {
+      "description": "",
+      "message": "Web"
+   },
+   "comm_width": {
+      "description": "",
+      "message": "Width"
+   },
+   "comm_xauth_name": {
+      "description": "",
+      "message": "xAuth(oAuth simplified)"
+   },
+   "confirm_clean_local_storage": {
+      "description": "",
+      "message": "Are you sure you want to empty the local cache data?"
+   },
+   "confirm_del_account": {
+      "description": "",
+      "message": "Are you sure you want to delete this account?"
+   },
+   "create_blocking": {
+      "description": "",
+      "message": "Block"
+   },
+   "create_blocking_title": {
+      "description": "",
+      "message": "Block this user"
+   },
+   "defaultTitle": {
+      "description": "",
+      "message": "FaWave, is a Chrome extension supporting multiple microblogging"
+   },
+   "destroy_blocking": {
+      "description": "",
+      "message": "Unblock"
+   },
+   "destroy_blocking_title": {
+      "description": "",
+      "message": "Unblock this user"
+   },
+   "extDes": {
+      "description": "",
+      "message": "FaWave, a Chrome extension supporting multiple microblogging. Feedback to @白一梓 ."
+   },
+   "extName": {
+      "description": "",
+      "message": "FaWave"
+   },
+   "language": {
+      "description": "",
+      "message": "en"
+   },
+   "msg_add_favorites_fail": {
+      "description": "",
+      "message": "Collect failed"
+   },
+   "msg_add_favorites_success": {
+      "description": "",
+      "message": "Collect successfully"
+   },
+   "msg_comment_original_too": {
+      "description": "",
+      "message": "Comment to the original author: @{{username}}"
+   },
+   "msg_comment_reply_default": {
+      "description": "",
+      "message": "Reply to @{{username}}:"
+   },
+   "msg_comment_success": {
+      "description": "",
+      "message": "Send comments success!"
+   },
+   "msg_comment_too": {
+      "description": "",
+      "message": "Comment to @{{username}}"
+   },
+   "msg_comment_who": {
+      "description": "",
+      "message": "Add comment to @{{username}}"
+   },
+   "msg_del_account_success": {
+      "description": "",
+      "message": "Successfully deleted account({{blogname}}) {{username}}"
+   },
+   "msg_del_favorites_fail": {
+      "description": "",
+      "message": "Unsubscribe failed"
+   },
+   "msg_del_favorites_success": {
+      "description": "",
+      "message": "Unsubscribe successfully"
+   },
+   "msg_delete_fail": {
+      "description": "",
+      "message": "Delete failed"
+   },
+   "msg_delete_success": {
+      "description": "",
+      "message": "Deleted successfully"
+   },
+   "msg_direct_message_who": {
+      "description": "",
+      "message": "Send direct message to @{{username}}"
+   },
+   "msg_edit_user_success": {
+      "description": "",
+      "message": "{{edit}} Users '{{username}}' success!"
+   },
+   "msg_enabled_geo_false": {
+      "description": "",
+      "message": "Enable geographic positioning failure。"
+   },
+   "msg_f_create_fail": {
+      "description": "",
+      "message": "Follow '{{name}}' fail"
+   },
+   "msg_f_create_success": {
+      "description": "",
+      "message": "Follow '{{name}}' success"
+   },
+   "msg_f_destroy_success": {
+      "description": "",
+      "message": "You have been canceled following the '{{name}}'"
+   },
+   "msg_file_too_large": {
+      "description": "",
+      "message": "File is too large, select the files less than {{max_size}}MB。"
+   },
+   "msg_has_new_tweet": {
+      "description": "",
+      "message": "have new tweets"
+   },
+   "msg_interval_update_success": {
+      "description": "",
+      "message": "Refresh interval has been updated"
+   },
+   "msg_loading_map": {
+      "description": "",
+      "message": "Map's API is loading, please try again later"
+   },
+   "msg_need_add_account": {
+      "description": "",
+      "message": "The user is not specified, please add inside the option!"
+   },
+   "msg_need_content": {
+      "description": "",
+      "message": "Please enter the content to be sent!"
+   },
+   "msg_need_file_or_pic": {
+      "description": "",
+      "message": "Please select an file or image to upload."
+   },
+   "msg_need_pic": {
+      "description": "",
+      "message": "Please select an image to upload."
+   },
+   "msg_need_select_account": {
+      "description": "",
+      "message": "Please select the account you want to send!"
+   },
+   "msg_need_username_and_pwd": {
+      "description": "",
+      "message": "Please enter your username and password!"
+   },
+   "msg_no_geo_info": {
+      "description": "",
+      "message": "Location information is not available"
+   },
+   "msg_not_support_geo": {
+      "description": "",
+      "message": "Browser does not support the location targeting"
+   },
+   "msg_pic_too_large": {
+      "description": "",
+      "message": "Image is too large, select the images less than {{max_size}}MB。"
+   },
+   "msg_pic_type_error": {
+      "description": "",
+      "message": "File type is not correct, only supports JPEG, GIF, PNG images。"
+   },
+   "msg_repost_success": {
+      "description": "",
+      "message": "Forward success!"
+   },
+   "msg_repost_too": {
+      "description": "",
+      "message": "At the same time forward a tweet"
+   },
+   "msg_repost_who": {
+      "description": "",
+      "message": "Forward @{{username}}'s message"
+   },
+   "msg_save_success": {
+      "description": "",
+      "message": "Successfully saved"
+   },
+   "msg_send_complete": {
+      "description": "",
+      "message": "{{successCount}} sent successfully,{{errorCount}}failed."
+   },
+   "msg_send_error": {
+      "description": "",
+      "message": "{{username}} Send error."
+   },
+   "msg_send_success": {
+      "description": "",
+      "message": "Sent successfully!"
+   },
+   "msg_shorten_fail": {
+      "description": "",
+      "message": "Failed to shorten URLs"
+   },
+   "msg_shorting": {
+      "description": "",
+      "message": "Is shrinking..."
+   },
+   "msg_shorting_and_wait": {
+      "description": "",
+      "message": "Is trying to shorten, please wait"
+   },
+   "msg_stat_change_success": {
+      "description": "",
+      "message": "{{username}} modify the state of: {{stat}}"
+   },
+   "msg_update_account_info_success": {
+      "description": "",
+      "message": "Successful refresh the ({{blogname}}) {{username}}'s information"
+   },
+   "msg_update_accounts_info_complete": {
+      "description": "",
+      "message": "Complete refresh user information. Successful {{successCount}}, failed {{errorCount}}."
+   },
+   "msg_update_accounts_info_false": {
+      "description": "",
+      "message": "Refresh the ({{blogname}}) {{username}}'s information failed Cause: The user name or password is incorrect, please change."
+   },
+   "msg_update_accounts_info_unknow_error": {
+      "description": "",
+      "message": "Refresh the ({{blogname}}) {{username}}'s information failed Cause: Unknown error. errorCode: {{errorcode}}"
+   },
+   "msg_user_save_error": {
+      "description": "",
+      "message": "An error, save failure。"
+   },
+   "msg_word_count": {
+      "description": "",
+      "message": "({{len}} words left)"
+   },
+   "msg_word_overstep": {
+      "description": "",
+      "message": "Beyond {{len}} words"
+   },
+   "msg_wrong_name_or_pwd": {
+      "description": "",
+      "message": "User name or password is incorrect, please change"
+   },
+   "msg_wrong_page_url": {
+      "description": "",
+      "message": "The current page url is incorrect."
+   },
+   "sett_TabName_about": {
+      "description": "",
+      "message": "About"
+   },
+   "sett_TabName_advanced_set": {
+      "description": "",
+      "message": "Advanced Settings"
+   },
+   "sett_TabName_appearance_set": {
+      "description": "",
+      "message": "Skin Settings"
+   },
+   "sett_TabName_common_set": {
+      "description": "",
+      "message": "Basic Settings"
+   },
+   "sett_TabName_user_set": {
+      "description": "",
+      "message": "Account Settings"
+   },
+   "sett_btn_add_new_account": {
+      "description": "",
+      "message": "Add a new user"
+   },
+   "sett_btn_clean_cache": {
+      "description": "",
+      "message": "Clear the local cache data"
+   },
+   "sett_btn_clean_local_storage": {
+      "description": "",
+      "message": "Clear the local cache data"
+   },
+   "sett_btn_get_account_cancel": {
+      "description": "",
+      "message": "Cancel"
+   },
+   "sett_btn_get_account_pin": {
+      "description": "",
+      "message": "Click here to obtain the authorization code"
+   },
+   "sett_btn_get_account_save": {
+      "description": "",
+      "message": "Add"
+   },
+   "sett_btn_save_all": {
+      "description": "",
+      "message": "Save all"
+   },
+   "sett_btn_update_accounts": {
+      "description": "",
+      "message": "Update user information"
+   },
+   "sett_des_account_api_secret": {
+      "description": "",
+      "message": "API Key Secret："
+   },
+   "sett_des_account_appkey": {
+      "description": "",
+      "message": "APP Key："
+   },
+   "sett_des_account_appkey_diy": {
+      "description": "",
+      "message": "Use My Key："
+   },
+   "sett_des_account_appkey_secret": {
+      "description": "",
+      "message": "Secret："
+   },
+   "sett_des_account_auth_type": {
+      "description": "",
+      "message": "Authentication Type: "
+   },
+   "sett_des_account_blog_type": {
+      "description": "",
+      "message": "Microblogging："
+   },
+   "sett_des_account_name": {
+      "description": "",
+      "message": "　Username: "
+   },
+   "sett_des_account_password": {
+      "description": "",
+      "message": "Password: "
+   },
+   "sett_des_account_pin": {
+      "description": "",
+      "message": "Authorization code: "
+   },
+   "sett_des_account_proxy_api": {
+      "description": "",
+      "message": "API Agent："
+   },
+   "sett_des_account_proxy_api_key": {
+      "description": "",
+      "message": "API Key："
+   },
+   "sett_des_auto_short_url": {
+      "description": "",
+      "message": "Auto Shorten"
+   },
+   "sett_des_auto_short_url_words": {
+      "description": "",
+      "message": "Over how many characters than auto shorten"
+   },
+   "sett_des_g_refresh_time_hits": {
+      "description": "",
+      "message": "(The refresh interval is currently set number of requests generated per hour at：\u003Cspan id=\"gRefreshTimeHits\">\u003C/span>request per hour)"
+   },
+   "sett_des_quick_send_key": {
+      "description": "",
+      "message": "Please direct press keys"
+   },
+   "sett_des_shorten_url_service": {
+      "description": "",
+      "message": "URL shortening service"
+   },
+   "sett_export": {
+      "description": "",
+      "message": "Export Settings"
+   },
+   "sett_import": {
+      "description": "",
+      "message": "Import Settings"
+   },
+   "sett_itemDes_sync_to_page": {
+      "description": "",
+      "message": "At the same time, Clear the number of unread tweets(Only supports Sina microblogging)"
+   },
+   "sett_itemName": {
+      "description": "",
+      "message": ""
+   },
+   "sett_itemName_WH": {
+      "description": "",
+      "message": "Width settings: "
+   },
+   "sett_itemName_WH_height_limit": {
+      "description": "",
+      "message": "\u003Cb>height limit: \u003C/b>height of more than about 570-580, will lead to failure of the scroll bar."
+   },
+   "sett_itemName_auto_short_url": {
+      "description": "",
+      "message": "Auto Shorten The Url: "
+   },
+   "sett_itemName_context_menu": {
+      "description": "",
+      "message": "Enable Right-click Menu: "
+   },
+   "sett_itemName_default_language": {
+      "description": "",
+      "message": "Display language: "
+   },
+   "sett_itemName_destop_alert": {
+      "description": "",
+      "message": "Desktop Alert: "
+   },
+   "sett_itemName_destop_alert_timeout": {
+      "description": "",
+      "message": "Auto Close Delay: "
+   },
+   "sett_itemName_font": {
+      "description": "",
+      "message": "Font settings: "
+   },
+   "sett_itemName_g_refresh_time": {
+      "description": "",
+      "message": "Refresh Time: "
+   },
+   "sett_itemName_geo": {
+      "description": "",
+      "message": "Enable My Geo: "
+   },
+   "sett_itemName_instapaper": {
+      "description": "",
+      "message": "Instapaper Account："
+   },
+   "sett_itemName_quick_send_key": {
+      "description": "",
+      "message": "Quick Send Hot Key: "
+   },
+   "sett_itemName_readitlater": {
+      "description": "",
+      "message": "Read It Later Account："
+   },
+   "sett_itemName_remember_view_status": {
+      "description": "",
+      "message": "Remember view status"
+   },
+   "sett_itemName_send_select": {
+      "description": "",
+      "message": "Default Accounts Select:"
+   },
+   "sett_itemName_set_badge": {
+      "description": "",
+      "message": "Unread Nums: "
+   },
+   "sett_itemName_shared_template": {
+      "description": "",
+      "message": "　Sharing Template: "
+   },
+   "sett_itemName_show_in_page": {
+      "description": "",
+      "message": "Web Browsing Tips: "
+   },
+   "sett_itemName_show_network_error": {
+      "description": "",
+      "message": "Show Network Error："
+   },
+   "sett_itemName_smooth_scroller": {
+      "description": "",
+      "message": "Smooth Scrolling: "
+   },
+   "sett_itemName_sound_alert": {
+      "description": "",
+      "message": "Alert Sound: "
+   },
+   "sett_itemName_sound_file": {
+      "description": "",
+      "message": "Sound files: "
+   },
+   "sett_itemName_sync_to_page": {
+      "description": "",
+      "message": "Synchronization To: "
+   },
+   "sett_itemName_theme": {
+      "description": "",
+      "message": "Theme Select: "
+   },
+   "sett_itemName_translate_target": {
+      "description": "",
+      "message": "Translation To Language: "
+   },
+   "sett_itemName_use_browser_geo": {
+      "description": "",
+      "message": "Use browser location API"
+   },
+   "sett_itemName_use_ip_geo": {
+      "description": "",
+      "message": "Use IP determine location"
+   },
+   "sett_itemName_vdisk": {
+      "description": "",
+      "message": "VDisk Account："
+   },
+   "sett_jTip_WH_width_limit": {
+      "description": "",
+      "message": "\u003Cb>width limit: \u003C/b>width limit is 800, and then will not change the size of a larger."
+   },
+   "sett_jTip_account_appkey": {
+      "description": "",
+      "message": "Our FaWave app key had been blocked by Sina, we are so sorry, please use other app key to continue let FaWave work on Sina Weibo."
+   },
+   "sett_jTip_account_auth_type": {
+      "description": "",
+      "message": "\u003Cb>Authentication Type Description: \u003C/b>\u003Cbr/>\u003Cspan class=\"note\">Basic Auth\u003C/span>: convenient, but the user name and password stored locally. \u003Cbr/>\u003Cspan class=\"note\">oAuth\u003C/span>: to the authorized site get the authorization code, more secure, recommended. (Local only stored authorization code) \u003Cbr/>\u003Cspan class=\"note\">xAuth\u003C/span>: oAuth simplified way, directly enter the user password authentication, but the user password is not stored locally."
+   },
+   "sett_jTip_account_custom_secret": {
+      "description": "",
+      "message": "apply to become a developer from https://developer.twitter.com/, and fill api secret in here."
+   },
+   "sett_jTip_account_proxy_api": {
+      "description": "",
+      "message": "If you select the oAuth way, please clare api. If you select the gtap or twip (O mode) way, please approach with Basic Auth。"
+   },
+   "sett_jTip_account_proxy_api_key": {
+      "description": "",
+      "message": "apply to become a developer from https://developer.twitter.com/, and fill api key in here."
+   },
+   "sett_jTip_context_menu": {
+      "description": "",
+      "message": "The \"Shared By FaWave\"option added to your current web browser context menu。: "
+   },
+   "sett_jTip_destop_alert": {
+      "description": "",
+      "message": "prompt the number of unread messages on the desktop when receiving new tweets"
+   },
+   "sett_jTip_g_refresh_time": {
+      "description": "",
+      "message": "Here set the refresh interval is global, if you need a specific account for specific settings, go to \"\u003Cspan class=\"note\">Account Settings\u003C/span>\" to customize the settings. For example: 30 seconds refresh Sina minimum, while the Twitter API requests per hour is 150, so 30 seconds refresh Twitter will certainly exceed the limit, over the limit will be wrong. So Twitter account can go to \"\u003Cspan class=\"note\">Account Settings\u003C/span>\" to customize the settings. The API requests the account specific frequency limits can click the \"\u003Cspan class=\"note\">View API request limit state\u003C/span>\" to view. The minimum is \u003Cspan class=\"note\">30 seconds\u003C/span> can be set"
+   },
+   "sett_jTip_geo": {
+      "description": "",
+      "message": "Here to get to the location is not necessarily accurate, so the best have a look at the opening of your current location is correct。"
+   },
+   "sett_jTip_instapaper": {
+      "description": "",
+      "message": "Enable Instapaper，RL(Read Later) button will show in toolbar\u003Cbr />\u003Cimg src=\"/images/setting/rl.jpg\" />"
+   },
+   "sett_jTip_manage_accounts": {
+      "description": "",
+      "message": "\u003Cspan class=\"note\">Account Status: \u003C/span> \"enable\" the account can view and send tweet. \"Send only\" account can not see, only when sending tweet can choose to sync sent. \"Disabled\" account can neither see nor can simultaneously send, please just do not want to manage your account temporarily, when it is set to \"disabled\". \u003Cbr/>\u003Cspan class=\"note\">refresh interval: \u003C/span>here set the refresh rate override \"Interval to obtain information\" settings inside \"\u003Cspan class=\"note\">basic settings\u003C/span>\", where you can set specific for a particular account of the refresh time interval, without affecting other accounts using the global settings. You can set the minimum value of \u003Cspan class=\"note\">30 seconds\u003C/span>. Figures in brackets refer to the current global setting, enter \"0\" means use global settings. \u003Cbr/>\u003Cspan class=\"note\">account sort: \u003C/span>dragging account picture can be sort. \u003Cbr/>\u003Cspan class=\"note\">Save: \u003C/span> all operations will be automatically saved after your operation."
+   },
+   "sett_jTip_quick_send_key": {
+      "description": "",
+      "message": "In all of the pages, you can use the shortcut key you set to pop-up the interface to send out tweet, fast and lightweight. \u003Cspan class=\"note\">Change the shortcut keys and saved, will take effect after refresh the page.\u003C/span>\u003Cbr/> Tip: \u003Cspan class=\"note\">Select text on the page, and then press the shortcut key to pop-up the interface to send out tweet that will automatically fill the selected text to the input box.\u003C/span>\u003Cbr/>\u003Cimg src=\"/images/setting/quick_send.png\" />"
+   },
+   "sett_jTip_readitlater": {
+      "description": "",
+      "message": "Enable 'Read It Later'，RIL(Read It Later) button will show in toolbar\u003Cbr />\u003Cimg src=\"/images/setting/ril.jpg\" />"
+   },
+   "sett_jTip_remember_view_status": {
+      "description": "",
+      "message": "When you open the popup page, restore the last view status for you, including the tab and scroll position"
+   },
+   "sett_jTip_send_select": {
+      "description": "",
+      "message": "When you set up multiple accounts, when sending the microblogging accounts can be automatically selected。"
+   },
+   "sett_jTip_set_badge": {
+      "description": "",
+      "message": "\u003Cb>FaWave the number of unread messages on the button tips: \u003C/b>\u003Cbr/>\u003Cimg src=\"/images/setting/unread.gif\" />"
+   },
+   "sett_jTip_shared_template": {
+      "description": "",
+      "message": "\u003Cb>Available parameters and description: \u003C/b>\u003Cbr/>When you use the \"I'm watching\" feature, will generate the final content based on this template. \u003Cbr/>template parameter must be wrapped up by \"{{}}\", the available parameters are: \u003Cbr/>\u003Cp>\u003Cb>{{url}}\u003C/b>: You are currently browsing the Web url\u003C/p>\u003Cp>\u003Cb>{{title}}\u003C/b>: You are currently browsing the page title\u003C/p>\u003Cimg src = \"/images/setting/looking.png\" />"
+   },
+   "sett_jTip_show_in_page": {
+      "description": "",
+      "message": "\u003Cb>Prompted the new information you are looking at page, auto-hide after 5 seconds:　\u003C/b>\u003Cbr/>\u003Cimg src=\"/images/setting/show_in_page.png\" />"
+   },
+   "sett_jTip_show_network_error": {
+      "description": "",
+      "message": "Put on this, you will see error message like:\u003Cbr/>\u003Cbr/>\u003Cimg src=\"http://ww1.sinaimg.cn/large/6cfc7910jw1dnlatq8i9aj.jpg\" />"
+   },
+   "sett_jTip_sound_alert": {
+      "description": "",
+      "message": "Play a sound when receiving new tweets. \u003Cbr/> sound files can be files on the network (http:// ***, etc.), but to the stability of plug-ins, select the link speed of fast and stable. Default: / sound/d.mp3"
+   },
+   "sett_jTip_sync_to_page": {
+      "description": "",
+      "message": "\u003Cspan class=\"note\">Only supports Sina microblogging\u003C/span>。If you have already passed FaWave read the information,\u003Cbr/>Clear the number of unread tweets at the same time\u003Cbr/>\u003Cbr/>\u003Cimg src=\"/images/setting/page_unread_tip.png\" />"
+   },
+   "sett_jTip_update_accounts": {
+      "description": "",
+      "message": "For quick start, user information will be cached on the local, if you modify the user picture, or other user information, update it manually。"
+   },
+   "sett_jTip_vdisk": {
+      "description": "",
+      "message": "Enable \"微盘VDisk\"，you can upload files"
+   },
+   "sett_msg_donate": {
+      "description": "",
+      "message": "Thanks for their donation：\u003Ca href=\"http://item.taobao.com/item.htm?id=9279069357\" target=\"_blank\">(Click To Donate FaWave)\u003C/a>"
+   },
+   "sett_refresh_interval": {
+      "description": "",
+      "message": "Refresh interval"
+   },
+   "sett_send_select_all": {
+      "description": "",
+      "message": "All accounts"
+   },
+   "sett_send_select_current": {
+      "description": "",
+      "message": "Current account"
+   },
+   "sett_send_select_remember": {
+      "description": "",
+      "message": "Remember the last selected"
+   },
+   "sett_shared_template": {
+      "description": "",
+      "message": "{{title}} {{url}} "
+   },
+   "sett_show_my_geo": {
+      "description": "",
+      "message": "View My Location"
+   },
+   "sett_smooth_scroller_ease": {
+      "description": "",
+      "message": "Ease"
+   },
+   "sett_smooth_scroller_tween": {
+      "description": "",
+      "message": "Animation"
+   },
+   "sett_themeName_bubble": {
+      "description": "",
+      "message": "Bubble"
+   },
+   "sett_themeName_simple": {
+      "description": "",
+      "message": "Concise"
+   },
+   "sett_tip_add_account": {
+      "description": "",
+      "message": "\u003Cli>* Please logout Sina weibo first: \u003Cb>\u003Ca href=\"http://t.sina.com.cn/logout.php?backurl=/\" target=\"_blank\">Logout sina weibo\u003C/a>\u003C/b>\u003C/li>"
+   },
+   "sett_title_account_manage": {
+      "description": "",
+      "message": "User Management"
+   },
+   "sett_title_author": {
+      "description": "",
+      "message": "Author"
+   },
+   "sett_title_official": {
+      "description": "",
+      "message": "Official microblogging"
+   },
+   "showblocking": {
+      "description": "",
+      "message": "Blocking"
+   },
+   "showblocking_title": {
+      "description": "",
+      "message": "View blocking users"
+   }
+}
